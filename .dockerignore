@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Python
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/venv
+**/.venv
+**/.mypy_cache
+**/.ruff_cache
+
+# Node
+**/node_modules
+**/dist
+**/.vite
+
+# Mediu local si date runtime
+**/.env
+backend/data/users
+
+# Documentatie / tooling (nu sunt necesare in imagini)
+documentatie_latex
+diagrame_src
+.cursor
+terminals
+**/*.md
+!README.md
+
+# Build artifacts
+**/*.log

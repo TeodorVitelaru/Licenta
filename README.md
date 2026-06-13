@@ -24,7 +24,68 @@ licenta_final/
 Optional, pentru functionalitati Superliga live:
 - Cheie **API-Football** ([api-sports.io](https://www.api-sports.io/))
 
-## Pornire rapida
+## Rulare cu Docker (recomandat pentru demo)
+
+### Ce trebuie instalat
+
+1. **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** (Windows / macOS) sau Docker Engine + Docker Compose (Linux)
+2. Verifica instalarea:
+
+```bash
+docker --version
+docker compose version
+```
+
+3. Asigura-te ca exista modelul ML local (necesar la build):
+
+```
+model_3_clase/experimentare/lgbm_final_model.pkl
+```
+
+4. Configureaza variabilele de mediu:
+
+```bash
+copy .env.docker.example backend\.env        # Windows
+cp .env.docker.example backend/.env          # Linux / macOS
+```
+
+Editeaza `backend/.env` si seteaza `SECRET_KEY` si `API_FOOTBALL_KEY`.
+
+### Pornire
+
+Din radacina proiectului (`licenta_final/`):
+
+```bash
+docker compose up --build
+```
+
+| Serviciu | URL |
+|----------|-----|
+| Aplicatie web | http://localhost:8080 |
+| API backend | http://localhost:8000 |
+| Swagger docs | http://localhost:8000/docs |
+
+Oprire:
+
+```bash
+docker compose down
+```
+
+Datele utilizatorilor (conturi, predictii) sunt pastrate in volumul Docker `backend_user_data`.
+
+### Structura Docker
+
+```
+docker-compose.yml          # Orchestreaza backend + frontend
+backend/Dockerfile          # FastAPI + model ML
+Frontend-MatchSummary-/Dockerfile   # Build React + nginx
+Frontend-MatchSummary-/nginx.conf   # Proxy API catre backend
+.dockerignore               # Exclude fisiere inutile din build
+```
+
+Frontend-ul foloseste URL relativ catre API (`VITE_API_BASE_URL=""`); nginx redirectioneaza request-urile `/auth`, `/api`, `/predict`, `/matches` etc. catre containerul backend.
+
+## Pornire rapida (fara Docker)
 
 Aplicatia ruleaza in doua procese: backend (port 8000) si frontend (port 5173).
 
