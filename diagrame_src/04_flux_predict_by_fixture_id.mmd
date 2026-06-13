@@ -1,0 +1,31 @@
+%%{init: {"theme": "default", "themeVariables": {"fontSize": "16px"}}}%%
+flowchart TB
+    START(["POST /predict/by-fixture-id<br/>body: { fixture_id }"]) --> JWT{"Token JWT valid?"}
+    JWT -- "Nu" --> E401["401 Unauthorized"]
+    JWT -- "Da" --> KEY{"API_FOOTBALL_KEY<br/>configurata?"}
+    KEY -- "Nu" --> E500a["500 Missing API_FOOTBALL_KEY"]
+
+    KEY -- "Da" --> S1["Pas 1: GET /fixtures/statistics?fixture=ID"]
+    S1 --> CHK{"Exact 2 echipe<br/>in raspuns?"}
+    CHK -- "Nu" --> E400["400 Invalid fixture data"]
+
+    CHK -- "Da" --> S2["Pas 2: GET /fixtures/events?fixture=ID"]
+    S2 --> S2b["Agrega evenimentele:<br/>numara goluri home/away,<br/>cartonase, etc."]
+
+    S2b --> S3["Pas 3: Construieste fixture_data<br/>(echipe, scor, status FT, elapsed=90)"]
+    S3 --> S4["Pas 4: Construieste ApiFootballPredictionInput<br/>(fixture + statistics + events)"]
+    S4 --> S5["Pas 5: map_api_football_to_match_input()<br/>-> MatchInput (minut, scor, xG, suturi...)"]
+
+    S5 --> S6["Pas 6: prediction_service.predict(MatchInput)"]
+    S6 --> S6a["Construieste vectorul de 33 features"]
+    S6a --> S6b["LightGBM predict_proba<br/>(P gazda / egal / oaspete)"]
+    S6b --> S6c["Analiza timeline:<br/>momentum + momente decisive"]
+    S6c --> PREDOK{"Predictie<br/>generata?"}
+    PREDOK -- "Nu" --> E500b["500 Prediction failed"]
+
+    PREDOK -- "Da" --> S6d["Completeaza info echipe<br/>(nume, logo)"]
+    S6d --> S7["Pas 7: save_prediction(user_id, prediction)<br/>-> fisier JSON per utilizator"]
+    S7 --> OK(["200 OK<br/>PredictionResponse"])
+
+    S1 -. "exceptie" .-> E500c["500 Prediction failed"]
+    S2 -. "exceptie" .-> E500c

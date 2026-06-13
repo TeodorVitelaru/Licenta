@@ -1,0 +1,154 @@
+# =============================================================================
+# Win Probability - .gitignore (proiect complet)
+# =============================================================================
+
+# --- Mediu si secrete ---
+.env
+.env.*
+!.env.example
+*.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Medii virtuale
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pdm-python
+.pdm-build/
+.pixi/
+
+# Teste si coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# Type checkers / linters
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# --- Node.js / Frontend ---
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.tsbuildinfo
+
+# Loguri npm/yarn/pnpm
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Backend: date runtime ---
+backend/data/users/
+backend/data/**/*.json
+!backend/tests/**/*.json
+
+# --- Model ML: output generat (optional) ---
+model_3_clase/api_output/
+model_3_clase/**/*.png
+model_3_clase/**/*.jpg
+model_3_clase/decisive_moments_multiclass.csv
+# Decomenteaza daca modelele antrenate sunt prea mari pentru git:
+# model_3_clase/**/*.pkl
+# model_3_clase/**/*.joblib
+
+# Dataset-uri mari (daca exista local)
+**/dataset_training.csv
+**/dataset_*.csv
+model/
+data/raw/
+data/processed/
+
+# --- LaTeX ---
+documentatie_latex/*.aux
+documentatie_latex/*.bbl
+documentatie_latex/*.blg
+documentatie_latex/*.fdb_latexmk
+documentatie_latex/*.fls
+documentatie_latex/*.lof
+documentatie_latex/*.log
+documentatie_latex/*.lot
+documentatie_latex/*.out
+documentatie_latex/*.synctex.gz
+documentatie_latex/*.toc
+documentatie_latex/*.xdv
+documentatie_latex/*.nav
+documentatie_latex/*.snm
+documentatie_latex/*.vrb
+documentatie_latex/*.bcf
+documentatie_latex/*.run.xml
+
+# --- IDE / OS ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Diverse ---
+*.bak
+*.tmp
+*.temp
+tempCodeRunnerFile.py
+.cursor/
+terminals/

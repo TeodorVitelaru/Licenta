@@ -1,0 +1,188 @@
+\chapter{Fundamente Teoretice și Studiu de Literatură}
+\label{chap:literatura}
+
+\section{Modele de învățare automată utilizate}
+
+Predicția rezultatului unui meci de fotbal se poate formula ca o problemă
+de clasificare multi-clasă: dat un \textit{snapshot}, adică o reprezentare
+vectorială a stării jocului la un moment dat, conținând informații precum
+scorul curent, timpul scurs, șuturile pe poartă și expected goals acumulate,
+modelul trebuie să estimeze probabilitățile pentru cele trei rezultate
+posibile: \textit{victorie gazdă}, \textit{egal} sau
+\textit{victorie oaspeți}. În literatura de specialitate, această problemă
+a fost abordată prin metode variate, de la modele liniare până la
+gradient boosting și rețele Bayesiene \cite{Robberechts2019, Maddox2022}.
+În cadrul acestei lucrări a fost evaluată performanța a trei algoritmi
+(Gradient Boosting, LightGBM și Regresie Logistică), selectați astfel
+încât să acopere un spectru de complexitate de la modelul liniar de
+referință până la implementările optimizate de ansamblu. Alegerea modelului
+final s-a bazat pe metrici probabilistice (RPS, Brier Score, eroare de
+calibrare), nu doar pe acuratețe de clasificare, deoarece pentru aplicații
+tactice calitatea distribuției de probabilitate este mai relevantă decât
+simpla predicție a clasei câștigătoare \cite{Robberechts2019}.
+
+\subsection{Gradient Boosting}
+
+Gradient Boosting este o metodă de ansamblu care construiește secvențial o
+serie de arbori de decizie, fiecare arbore nou fiind antrenat să corecteze
+erorile reziduale ale celui precedent. Formal, modelul optimizează o funcție
+de pierdere diferențiabilă $\mathcal{L}(y, F(x))$ prin coborâre pe gradient
+în spațiul funcțiilor, adăugând la fiecare pas un estimator slab $h_t(x)$
+scalat cu rata de învățare $\eta$:
+
+\begin{equation}
+    F_t(x) = F_{t-1}(x) + \eta \cdot h_t(x)
+\end{equation}
+
+unde $F_t(x)$ este modelul la iterația $t$, $F_{t-1}(x)$ este modelul
+anterior, $h_t(x)$ este arborele de decizie adăugat la pasul curent, iar
+$\eta \in (0, 1]$ este rata de învățare care controlează contribuția
+fiecărui arbore nou.
+
+Spre deosebire de Random Forest, care antrenează arborii în paralel și
+independent, Gradient Boosting exploatează informația din pașii anteriori,
+ceea ce îl face mai precis pe date structurate, dar și mai sensibil la
+overfitting dacă hiperparametrii nu sunt controlați corespunzător.
+Detaliile privind configurația hiperparametrilor și rezultatele obținute
+sunt prezentate în Capitolul~\ref{cap:metodologie}.
+
+\subsection{LightGBM}
+
+LightGBM (Light Gradient Boosting Machine) este o implementare optimizată
+a algoritmului Gradient Boosting, dezvoltată de Microsoft \cite{Ke2017},
+care introduce două tehnici cheie față de implementările clasice:
+Gradient-based One-Side Sampling (GOSS) și Exclusive Feature Bundling (EFB).
+
+GOSS păstrează instanțele cu gradient mare (cele care contribuie cel mai
+mult la procesul de învățare) și eșantionează aleatoriu instanțele cu
+gradient mic, reducând volumul de date procesat fără pierdere semnificativă
+de informație. EFB grupează caracteristicile mutual exclusive pentru a reduce
+dimensionalitatea efectivă a datelor.
+
+Din punct de vedere structural, LightGBM construiește arborii
+\textit{leaf-wise} (extinde frunza cu cel mai mare câștig de informație),
+spre deosebire de abordarea \textit{level-wise} a implementărilor
+tradiționale, ceea ce duce la arbori mai adânci și mai expresivi cu același
+număr de iterații. Această proprietate îl face deosebit de eficient pe
+seturi de date de mari dimensiuni, cum este cel utilizat în această lucrare
+\cite{StatsBomb}. Criteriile complete de selecție a acestui model și
+comparația cu celelalte variante sunt detaliate în
+Capitolul~\ref{cap:metodologie}.
+
+\subsection{Regresie Logistică}
+
+Regresia logistică este utilizată ca model de referință (baseline),
+estimând probabilitățile celor trei clase prin funcția softmax:
+
+\begin{equation}
+    P(y = k \mid x) = \frac{e^{w_k^T x}}{\sum_{j=1}^{K} e^{w_j^T x}}
+\end{equation}
+
+unde $y$ este clasa prezisă, $x$ este vectorul de caracteristici, $w_k$ sunt
+ponderile asociate clasei $k$, iar $K = 3$ este numărul total de clase
+(\textit{victorie gazdă}, \textit{egal}, \textit{victorie oaspeți}).
+
+Ipoteza sa fundamentală este că relația dintre caracteristici și ieșire este
+liniară în spațiul log-probabilităților. Rolul său în această lucrare este
+de a verifica dacă non-liniaritatea capturată de modelele de ansamblu este
+cu adevărat necesară, cu alte cuvinte dacă complexitatea suplimentară
+a LightGBM și Gradient Boosting se justifică prin îmbunătățiri măsurabile
+ale metricilor probabilistice față de un model liniar simplu. Rezultatele
+comparative sunt prezentate în Capitolul~\ref{cap:metodologie}.
+
+Alegerea modelului final nu s-a bazat exclusiv pe acuratețea de
+clasificare, ci pe metrici probabilistice precum Ranked Probability Score,
+Brier Score și Expected Calibration Error, definite formal și discutate în
+detaliu în Capitolul~\ref{cap:metodologie}, Secțiunea~\ref{sec:metrici},
+acolo unde sunt prezentate și rezultatele experimentale care le folosesc.
+
+% ----------------------------------------------------------------
+\section{Lucrări relevante din literatură}
+\label{sec:literatura}
+
+Predicția win probability în sport are o istorie relativ scurtă ca domeniu
+formalizat, dar a acumulat o literatură relevantă mai ales după
+popularizarea datelor la nivel de eveniment. Prezentăm în continuare
+lucrările cu cel mai direct impact asupra metodologiei adoptate în această
+lucrare.
+
+\textbf{Robberechts et al. (2019)} propun primul model de win probability
+în timp real dedicat fotbalului \cite{Robberechts2019}. Autorii utilizează
+date la nivel de eveniment din opt sezoane ale competițiilor europene de
+top, provenite din platforma StatsBomb, acoperind aproximativ 2.000 de
+meciuri. Sunt evaluate două arhitecturi: un model Gradient Boosting și o
+rețea Bayesiană, ambele antrenate pe caracteristici derivate din goluri,
+șuturi și presiune. Modelul Gradient Boosting obține un RPS de 0.197,
+superior liniei de bază statistice, iar autorii concluzionează că
+evenimentele in-game, în special golurile și șuturile pe poartă, contribuie
+semnificativ la actualizarea probabilităților de-a lungul meciului.
+O concluzie practică importantă este stabilirea pragului ECE de 0.05 ca
+criteriu de acceptabilitate pentru uz tactic real. Această lucrare
+constituie referința primară pentru metodologia adoptată în prezenta
+lucrare: același tip de date (StatsBomb), aceeași formulare a problemei
+(clasificare multi-clasă în timp real) și aceleași metrici de evaluare
+(RPS, Brier Score, ECE).
+
+\textbf{Maddox (2022)} propune un cadru Bayesian generalizabil pentru
+predicția win probability, testat pe trei sporturi diferite: fotbal
+american (NFL), baschet (NBA) și hochei pe gheață (NHL)
+\cite{Maddox2022}. Seturile de date utilizate sunt publice, provenite
+din sursele oficiale ale ligilor respective, acoperind mai multe sezoane
+complete. Modelul Bayesian propus obține rezultate competitive față de
+modelele discriminative clasice în toate cele trei sporturi, cu avantajul
+suplimentar că oferă intervale de credibilitate explicite pentru
+probabilitățile estimate, nu doar valori punctuale. Autorii concluzionează
+că un cadru probabilistic unificat poate captura incertitudinea mai bine
+decât modelele discriminative și că abordarea se transferă natural între
+sporturi cu structuri de joc diferite. Relevanța pentru prezenta lucrare
+constă în argumentul privind importanța calibrării probabilistice față de
+simpla acuratețe de clasificare, argument care motivează alegerea metricilor
+de evaluare utilizate.
+
+\textbf{Hill (2022)} adaptează modelele de win probability pentru fotbalul
+canadian (CFL), un sport cu structură similară fotbalului american, dar cu
+reguli diferite \cite{Hill2022}. Autorul utilizează date play-by-play
+din șase sezoane CFL (2014--2019), reprezentând aproximativ 500 de meciuri,
+construind caracteristici temporale similare celor din fotbalul american:
+scor curent, timp rămas, poziția pe teren și posesia balonului. Modelul
+final, bazat pe regresie logistică cu caracteristici inginerizate, obține
+un RPS de
+0.171 și o acuratețe de 76.3\% pe setul de test. Autorul concluzionează
+că metodele dezvoltate inițial pentru fotbalul american sunt transferabile
+în fotbalul canadian cu ajustări minore și că RPS este metrica cea mai
+informativă pentru evaluarea calității probabilistice în acest context.
+Relevanța pentru prezenta lucrare este dublă: confirmă transferabilitatea
+metodelor de win probability între sporturi și justifică utilizarea RPS
+ca metrică principală de evaluare.
+
+\textbf{Burke (2010)} este unul dintre pionierii win probability în timp
+real, cu aplicare în fotbalul american (NFL) \cite{Burke2010}. Autorul
+utilizează date play-by-play din mai multe sezoane NFL, disponibile public,
+și construiește un model bazat pe regresie logistică care estimează
+probabilitatea de victorie la fiecare snap al mingii, pe baza scorului
+curent, timpului rămas, yard-urilor până la primul down și poziției pe
+teren. Modelul obține o acuratețe de aproximativ 80\% și un Brier Score
+competitiv față de liniile de bază disponibile la acea dată. Concluzia
+centrală a autorului este că fiecare eveniment dintr-un meci poate fi
+cuantificat prin impactul său marginal asupra probabilității de victorie,
+introducând astfel conceptul operațional de Win Probability Added (WPA).
+Deși contextul sportiv diferă față de fotbal, principiul fundamental,
+actualizarea continuă a probabilității pe baza evenimentelor, este
+identic cu abordarea din prezenta lucrare, iar WPA stă la baza
+algoritmului de detectare a momentelor decisive implementat.
+
+\textbf{Tango et al. (2007)} introduc conceptul de \textit{Win Probability
+Added} (WPA) în contextul baseball-ului, într-o lucrare de referință
+pentru analiza cantitativă a sportului \cite{Tango2007}. Autorii utilizează
+date istorice din Major League Baseball acoperind zeci de sezoane, calculând
+probabilitatea de victorie pentru fiecare situație posibilă de joc (inning,
+scor, număr de outuri și baze ocupate). WPA este definit ca diferența dintre
+probabilitatea de victorie înainte și după un eveniment, cuantificând astfel
+contribuția fiecărei acțiuni la rezultatul final al meciului. Autorii
+concluzionează că WPA oferă o modalitate obiectivă de a identifica momentele
+decisive ale unui meci și de a evalua contribuția individuală a jucătorilor
+dincolo de statisticile clasice. Relevanța pentru prezenta lucrare este
+directă: algoritmul de detectare automată a momentelor decisive este
+construit pe același principiu, identificarea variațiilor semnificative
+ale win probability de-a lungul meciului, adaptat însă pentru fotbal și
+pentru date la nivel de eveniment StatsBomb.

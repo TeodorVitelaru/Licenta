@@ -1,0 +1,55 @@
+\chapter*{Concluzii}
+\addcontentsline{toc}{chapter}{Concluzii}
+
+Lucrarea a prezentat un sistem complet de predicție a probabilității de câștig 
+în meciuri de fotbal, combinând un model LightGBM calibrat cu o aplicație web 
+full-stack funcțională, integrată cu datele Ligii 1 România prin API-Football.
+
+Modelul antrenat pe \textbf{12.2 milioane de evenimente} din \textbf{3.464 de 
+meciuri} StatsBomb obține un \textbf{RPS de 0.1431}, un \textbf{Brier Score de 
+0.1472} și o \textbf{eroare de calibrare de 0.0309}, sub pragul academic de 
+0.05, ceea ce îl face potrivit pentru uz tactic real \cite{Robberechts2019}. 
+Concret, dacă modelul estimează $P = 70\%$ pentru victoria gazdei, echipa 
+respectivă câștigă în $70\% \pm 3.09\%$ din situații similare.
+
+Selecția LightGBM față de Gradient Boosting reflectă nu doar performanța 
+competitivă (diferență sub 1\% pe toate metricile), ci și eficiența 
+computațională net superioară: o serie completă de antrenare la 500 de meciuri 
+s-a încheiat în 10 minute față de peste 17 ore pentru Gradient Boosting, un 
+raport de aproximativ 100:1 care face LightGBM singurul model practic pentru 
+reantrenare periodică pe volume crescânde de date.
+
+Experimentele comparative confirmă două concluzii metodologice clare. 
+Caracteristicile derivate de tip momentum, context temporal și context de joc aduc 
+îmbunătățiri consistente pentru modelele de ansamblu, în timp ce Regresia 
+Logistică nu poate exploata relațiile non-liniare introduse de aceste 
+caracteristici, comportament așteptat, dat fiind că ipoteza sa de liniaritate 
+este incompatibilă cu dinamica temporală a unui meci. Totodată, performanța se 
+stabilizează în intervalul 200--500 de meciuri, sugerând că modelele de 
+ansamblu converg rapid spre un nivel stabil fără a necesita volume foarte mari 
+de date.
+
+Aplicația dezvoltată pune aceste capabilități la dispoziția oricărui utilizator 
+printr-o interfață web accesibilă: clasamentul și meciurile Ligii 1 România 
+(sezon 2023) sunt preluate automat din API-Football, iar utilizatorul poate 
+genera predicții probabilistice pentru orice meci finalizat printr-un singur 
+click, predicțiile fiind salvate în istoricul său personal.
+
+\textbf{Limitări.} Modelul operează pe baza unui snapshot al stării jocului 
+la un moment dat, nu pe un flux continuu de evenimente. Nu sunt luați în 
+considerare factori contextuali precum accidentările, condițiile meteo sau 
+suspendările. Datele de antrenare acoperă exclusiv competițiile majore europene 
+din StatsBomb, ceea ce poate afecta performanța pe ligi mai puțin reprezentate, 
+inclusiv Liga 1 România, pe care aplicația o folosește în producție. 
+Totodată, planul gratuit al API-Football limitează accesul la sezonul 2023, 
+restricționând aplicabilitatea la date istorice.
+
+\textbf{Direcții viitoare.} Arhitectura sistemului este proiectată explicit 
+pentru a facilita extinderea naturală către predicție în timp real: înlocuirea 
+sursei de date istorice cu un flux live de evenimente nu necesită modificări 
+structurale majore în backend. Alte extensii posibile includ antrenarea 
+incrementală pe date din Liga 1 pentru îmbunătățirea performanței locale, 
+predicție minut-cu-minut pe toată durata meciului, incorporarea metricii 
+Expected Threat (xT) ca o caracteristică suplimentară \cite{Singh2019} și explorarea 
+modelelor de tip LSTM pentru capturarea dependențelor temporale dintre 
+evenimentele unui meci.

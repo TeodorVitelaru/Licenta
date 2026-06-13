@@ -1,0 +1,22 @@
+%%{init: {"theme": "default", "themeVariables": {"fontSize": "16px"}}}%%
+flowchart LR
+    START(["POST /predict/by-fixture-id<br/>{ fixture_id } + JWT"]) --> VJWT{"JWT valid?"}
+    VJWT -- "Nu" --> E401["401 Unauthorized"]
+    VJWT -- "Da" --> VKEY{"API_FOOTBALL_KEY<br/>configurata?"}
+    VKEY -- "Nu" --> E500a["500 Missing<br/>API_FOOTBALL_KEY"]
+
+    VKEY -- "Da" --> S1["Pas 1-2: Fetch din API-Football<br/>GET /fixtures/statistics<br/>GET /fixtures/events<br/>(agregare goluri si evenimente)"]
+    S1 --> CHK{"Exact 2 echipe<br/>in raspuns?"}
+    CHK -- "Nu" --> E400["400 Invalid<br/>fixture data"]
+
+    CHK -- "Da" --> BUILD["Pas 3-4: Construieste<br/>fixture_data si<br/>ApiFootballPredictionInput"]
+    BUILD --> MAP["Pas 5: map_api_football_to_match_input<br/>-> MatchInput"]
+    MAP --> PRED["Pas 6: PredictionService.predict<br/>- vector 33 features<br/>- LightGBM predict_proba<br/>- analiza timeline (momentum)"]
+    PRED --> POK{"Predictie<br/>generata?"}
+    POK -- "Nu" --> E500b["500 Prediction failed"]
+
+    POK -- "Da" --> SAVE["Pas 7: completeaza echipe<br/>+ save_prediction (JSON)"]
+    SAVE --> OK(["200 OK<br/>PredictionResponse"])
+
+    classDef err fill:#fde2e2,stroke:#c0392b,color:#7b241c;
+    class E401,E500a,E400,E500b err;

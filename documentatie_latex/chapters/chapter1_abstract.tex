@@ -1,0 +1,198 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\section*{Rezumat}
+
+Lucrarea de față propune un sistem de analiză și predicție a probabilității
+de câștig în meciuri de fotbal, bazat pe tehnici de machine learning. Sistemul
+procesează evenimentele unui meci după încheierea acestuia, reconstituind
+evoluția probabilităților de-a lungul partidei pe baza evenimentelor
+înregistrate: goluri, șuturi, expected goals (xG), presiune și cartonașe.
+Arhitectura adoptată este proiectată astfel încât să permită extinderea
+naturală către predicție în timp real, fără modificări structurale majore.
+
+Un model \textbf{LightGBM} a fost antrenat pe \textbf{12.2 milioane de
+evenimente} provenite din \textbf{3.464 de meciuri} din setul de date public
+StatsBomb, acoperind competițiile majore europene din perioada 2017--2023.
+Modelul obține un \textbf{RPS de 0.1431}, un \textbf{Brier Score de 0.1472}
+și o \textbf{eroare de calibrare de 0.0309}, valori competitive față de
+literatura de specialitate și sub pragul academic de 0.05 pentru uz tactic
+real \cite{Robberechts2019}.
+
+Pe lângă predicție, sistemul identifică automat momentele decisive ale
+meciului pe baza variațiilor semnificative de probabilitate, oferind
+analiștilor un instrument concret pentru înțelegerea dinamicii unui joc.
+Aplicația este implementată ca un sistem full-stack: un backend REST API
+construit cu FastAPI, autentificare securizată prin JWT și un frontend React,
+care oferă acces la clasamentul și meciurile Ligii 1 România (Superliga),
+sezonul 2023, prin integrarea API-Football. Utilizatorii pot genera predicții
+probabilistice pentru meciurile finalizate, predicțiile fiind salvate în
+istoricul personal al fiecărui utilizator.
+
+\bigskip
+\noindent\textbf{Cuvinte cheie:} machine learning, win probability, fotbal,
+LightGBM, predicție post-meci, StatsBomb, expected goals, calibrare
+probabilistică.
+
+% ----------------------------------------------------------------
+\section*{Abstract (English)}
+
+This thesis presents a system for analysing and predicting win probability
+in football matches using machine learning. The system processes match events
+after the game has concluded, reconstructing the evolution of win probabilities
+throughout the match based on recorded events: goals, shots, expected goals
+(xG), pressure, and cards. The architecture is designed to allow natural
+extension towards live, in-game prediction without major structural changes.
+
+A \textbf{LightGBM} model was trained on \textbf{12.2 million events} from
+\textbf{3,464 matches} using the StatsBomb Open Data dataset, covering major
+European competitions from 2017 to 2023. The model achieves an
+\textbf{RPS of 0.1431}, a \textbf{Brier Score of 0.1472}, and a
+\textbf{Calibration Error of 0.0309}, results competitive with the
+existing literature and below the 0.05 threshold considered reliable for
+tactical use \cite{Robberechts2019}.
+
+Beyond prediction, the system automatically identifies key moments in a
+match by detecting significant probability shifts, providing analysts with
+a concrete tool for understanding match dynamics.
+
+The application is implemented as a full-stack system comprising a FastAPI
+REST backend with JWT authentication and a React frontend. It integrates
+the API-Football service to provide access to the Romanian Liga 1 (Superliga)
+standings and fixtures from the 2023 season. Users can generate probabilistic
+predictions for completed matches, with each prediction saved to their
+personal history.
+
+\bigskip
+\noindent\textbf{Keywords:} machine learning, win probability, football,
+LightGBM, post-match analysis, StatsBomb, expected goals,
+probabilistic calibration.
+
+% ----------------------------------------------------------------
+\chapter*{Introducere}
+\addcontentsline{toc}{chapter}{Introducere}
+\label{intro}
+
+\section*{Prezentarea temei}
+
+Fotbalul este unul dintre cele mai analizate sporturi din lume, iar
+interesul pentru cuantificarea performanței și pentru predicția
+rezultatelor a crescut semnificativ odată cu disponibilitatea datelor
+granulare la nivel de eveniment. Totuși, majoritatea soluțiilor
+existente se concentrează fie pe predicția pre-meci, fie pe sisteme
+comerciale care nu sunt accesibile publicului larg sau mediului academic.
+
+Această lucrare abordează problema estimării probabilității de câștig
+\textit{în timpul} unui meci de fotbal, pe baza evenimentelor înregistrate
+(goluri, șuturi, expected goals (xG), presiune și cartonașe),
+reconstituind evoluția probabilistică a partidei eveniment cu eveniment.
+Spre deosebire de predicția clasică pre-meci, această abordare surprinde
+dinamica reală a jocului și permite identificarea momentelor decisive
+care au influențat decisiv soarta meciului.
+
+Relevanța practică a temei este dublă: pe de o parte, analiștii sportivi
+și staff-urile tehnice pot utiliza astfel de instrumente pentru evaluarea
+tactică post-meci; pe de altă parte, arhitectura propusă este proiectată
+explicit să permită extensia naturală către predicție în timp real, fără
+modificări structurale majore.
+
+\section*{Obiectivele lucrării}
+
+Principalele obiective urmărite în cadrul acestei lucrări sunt:
+
+\begin{enumerate}
+    \item Construirea unui pipeline de procesare a datelor la nivel de
+    eveniment, pornind de la setul de date public StatsBomb Open Data,
+    acoperind \textbf{3.464 de meciuri} și \textbf{12.2 milioane de
+    evenimente} din competițiile majore europene (2017--2023).
+
+    \item Antrenarea și evaluarea unui model \textbf{LightGBM} capabil
+    să estimeze probabilitățile de câștig, egal și pierdere la fiecare
+    moment al meciului, cu metrici competitive față de literatura de
+    specialitate.
+
+    \item Implementarea unui mecanism automat de detectare a momentelor
+    decisive ale meciului, bazat pe variațiile semnificative ale
+    probabilităților estimate.
+
+    \item Dezvoltarea unei aplicații full-stack funcționale care expune
+    modelul printr-un REST API (FastAPI, autentificare JWT) și un frontend
+    React, integrat cu API-Football pentru accesul la datele Ligii 1
+    România (Superliga), sezonul 2023.
+
+    \item Validarea rezultatelor prin metrici probabilistice standard:
+    Ranked Probability Score (RPS), Brier Score și eroare de calibrare,
+    cu raportare la pragurile acceptate în literatura de specialitate
+    \cite{Robberechts2019}.
+\end{enumerate}
+
+\section*{Contribuția proprie și rezultate originale}
+
+Contribuția principală a acestei lucrări constă în proiectarea și
+implementarea integrală a unui sistem end-to-end de predicție a
+probabilității de câștig în fotbal, de la procesarea brută a datelor
+până la interfața utilizatorului final.
+
+Din punct de vedere tehnic, contribuțiile originale includ:
+
+\begin{itemize}
+    \item Construirea unui set de caracteristici temporale derivate din
+    evenimentele StatsBomb, care codifică starea meciului la fiecare
+    moment: scor curent, presiune cumulată, xG acumulat pe echipă,
+    avantaj numeric și timp rămas.
+
+    \item Antrenarea unui model LightGBM pe acest set de date, obținând
+    un \textbf{RPS de 0.1431}, un \textbf{Brier Score de 0.1472} și o
+    \textbf{eroare de calibrare de 0.0309}, valori sub pragul de 0.05
+    considerat acceptabil pentru aplicații tactice reale
+    \cite{Robberechts2019}. Eroarea de calibrare obținută se situează
+    semnificativ sub acest prag, indicând că probabilitățile produse de
+    model reflectă fidel frecvențele reale.
+
+    \item Un algoritm de detectare automată a momentelor decisive, care
+    marchează punctele din meci în care probabilitatea de câștig a
+    înregistrat cele mai abrupte variații, oferind o naratologie
+    cantitativă a partidei.
+
+    \item O arhitectură software modulară, cu separare clară între
+    componenta de ML, backend-ul API și frontend, astfel încât
+    înlocuirea modelului sau extinderea la predicție live să nu
+    implice rescrierea sistemului.
+\end{itemize}
+
+\section*{Structura lucrării}
+
+Lucrarea este organizată în următoarele capitole:
+
+\textbf{Capitolul 1 --- Fundamente teoretice și studiu de literatură}
+prezintă modelele de învățare automată utilizate (Gradient Boosting,
+LightGBM, Regresie Logistică) și o sinteză a literaturii relevante privind
+modelarea win probability în sport.
+
+\textbf{Capitolul 2 --- Metodologie și experimente} descrie formularea
+problemei, setul de date StatsBomb Open Data, construirea caracteristicilor
+temporale, strategia de experimentare și optimizarea hiperparametrilor,
+metricile de evaluare probabilistică (RPS, Brier Score, eroare de calibrare),
+comparația celor trei modele și selecția modelului final LightGBM, precum și
+algoritmul de detectare a momentelor decisive.
+
+\textbf{Capitolul 3 --- Aplicația dezvoltată} descrie arhitectura
+full-stack: backend FastAPI, autentificare JWT, integrarea API-Football
+și interfața React, inclusiv fluxul complet al unui utilizator care
+generează o predicție, testarea și manualul utilizatorului.
+
+\textbf{Concluzii și direcții viitoare} sintetizează rezultatele
+obținute, limitările sistemului și direcțiile de extindere, în special
+tranziția către predicție în timp real.
+
+\bigskip
+\noindent\hrulefill
+\bigskip
+
+\noindent\textbf{Declarație privind utilizarea instrumentelor AI.}
+Pe parcursul elaborării acestei lucrări au fost utilizate instrumente
+bazate pe inteligență artificială (ChatGPT / GitHub Copilot) cu rol de
+asistență în redactarea și reformularea unor pasaje de text, precum și
+în generarea unor fragmente de cod auxiliar. Toate ideile, deciziile de
+proiectare, implementarea sistemului și interpretarea rezultatelor îmi
+aparțin în întregime. Responsabilitatea pentru conținutul lucrării este
+exclusiv a autorului.

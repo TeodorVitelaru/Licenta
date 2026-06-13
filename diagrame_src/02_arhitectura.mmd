@@ -1,0 +1,41 @@
+%%{init: {"theme": "default", "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    subgraph CLIENT["Client - Browser"]
+        direction TB
+        UI["React SPA (Vite)<br/>Pagini: Home, Login, Register,<br/>Clasament, Analiza Meci, Meciuri"]
+        SVC["Servicii API<br/>superliga.service / winProbability.service / api.service"]
+        AUTHCTX["AuthContext<br/>token JWT in localStorage"]
+        CACHE["Cache meciuri<br/>localStorage"]
+    end
+
+    subgraph SERVER["Backend - FastAPI (Python)"]
+        direction TB
+        ROUTES["Rute REST<br/>/auth, /api/superliga, /predict/by-fixture-id, /matches"]
+        AUTHJWT["Autentificare JWT<br/>auth.py"]
+        MAPPER["api_football_mapper<br/>mapare date -> features"]
+        PRED["PredictionService<br/>predictions.py"]
+        USERS["UserManager<br/>users.py"]
+    end
+
+    MODEL["Model ML<br/>lgbm_final_model.pkl<br/>LightGBM - 33 features"]
+    STORE["Stocare JSON<br/>utilizatori si predictii per utilizator"]
+    APIF["API-Football<br/>fixtures - statistics - events - standings"]
+    SB["StatsBomb Open Data<br/>antrenare offline"]
+
+    UI --> SVC
+    SVC --> AUTHCTX
+    SVC <--> CACHE
+    SVC -->|"HTTP / REST + JWT"| ROUTES
+
+    ROUTES --> AUTHJWT
+    ROUTES --> MAPPER
+    ROUTES --> PRED
+    ROUTES --> USERS
+    ROUTES -->|"HTTPS"| APIF
+
+    MAPPER --> PRED
+    PRED --> MODEL
+    USERS --> STORE
+    PRED --> STORE
+
+    SB -.->|"antrenare model"| MODEL

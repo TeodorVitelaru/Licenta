@@ -1,0 +1,40 @@
+%%{init: {"theme": "default", "themeVariables": {"fontSize": "18px"}}}%%
+flowchart LR
+    Vizitator["Vizitator"]
+    Utilizator["Utilizator autentificat"]
+    Admin["Administrator"]
+    ApiFootball["API-Football<br/>sistem extern"]
+
+    subgraph SISTEM["Sistem WinProb"]
+        UC1(["Inregistrare cont"])
+        UC2(["Autentificare"])
+        UC3(["Vizualizare clasament"])
+        UC4(["Vizualizare lista meciuri"])
+        UC5(["Filtrare meciuri dupa echipa"])
+        UC6(["Generare predictie meci"])
+        UC7(["Vizualizare detalii predictie"])
+        UC8(["Analiza meci pe echipa"])
+        UC9(["Vizualizare istoric predictii"])
+        UC10(["Vizualizare metrici model"])
+        UC11(["Administrare utilizatori"])
+    end
+
+    Vizitator --> UC1
+    Vizitator --> UC2
+
+    Utilizator --> UC3
+    Utilizator --> UC4
+    Utilizator --> UC5
+    Utilizator --> UC6
+    Utilizator --> UC7
+    Utilizator --> UC8
+    Utilizator --> UC9
+    Utilizator --> UC10
+
+    Admin --> UC10
+    Admin --> UC11
+    Admin -. este un .-> Utilizator
+
+    UC3 -. include .-> ApiFootball
+    UC4 -. include .-> ApiFootball
+    UC6 -. include .-> ApiFootball

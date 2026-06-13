@@ -1,0 +1,78 @@
+@startuml arhitectura_componente
+' Diagrama de componente UML pentru aplicatia de predictie a probabilitatii de castig.
+' Randare: PlantUML (necesita Java) sau online la https://www.plantuml.com/plantuml
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam defaultFontName Sans
+skinparam component {
+  BackgroundColor #EEF2FF
+  BorderColor #3B4CCA
+}
+skinparam package {
+  BackgroundColor #FBFBFE
+  BorderColor #8888AA
+}
+title Diagrama de componente a aplicatiei
+
+package "Nivel prezentare (Client - Browser)" {
+  component "React SPA (Vite)\nHome, Login, Register,\nClasament, Analiza Meci, Meciuri" as SPA
+  component "Strat servicii\napi.service / superliga.service\nwinProbability.service / auth.service" as SVC
+  component "AuthContext\n(stare de autentificare)" as AUTH
+  database "localStorage\n(token JWT, cache meciuri)" as LS
+}
+
+package "Nivel logica (Backend - FastAPI)" {
+  component "Rute REST\napp.py" as ROUTES
+  component "Autentificare JWT\nauth.py" as JWT
+  component "api_football_mapper\nmapare date -> caracteristici" as MAPPER
+  component "PredictionService\npredictions.py" as PRED
+  component "UserManager\nusers.py" as USERS
+}
+
+package "Nivel date" {
+  database "Stocare JSON\nutilizatori si predictii" as STORE
+  artifact "lgbm_final_model.pkl\nLightGBM - 33 caracteristici" as MODEL
+}
+
+cloud "API-Football\n(fixtures, statistics,\nevents, standings)" as APIF
+cloud "StatsBomb Open Data\n(antrenare offline)" as SB
+
+' --- Interfete (provided/required) ---
+interface "IREST (REST + JWT)" as IREST
+interface "IInferenta" as IINF
+interface "IPersistenta" as IPERS
+interface "IApiFootball" as IAPIF
+
+' Nivel prezentare
+SPA --> SVC
+SVC --> AUTH
+SVC --> LS
+
+' Interfata REST: backend-ul o ofera, frontend-ul o consuma
+ROUTES -up- IREST
+SVC ..> IREST : consuma
+
+' Nivel logica
+ROUTES --> JWT
+ROUTES --> MAPPER
+ROUTES --> USERS
+MAPPER --> PRED
+
+' Inferenta ML: PredictionService o ofera, Rutele o consuma
+PRED -- IINF
+ROUTES ..> IINF : consuma
+MODEL ..> PRED : incarcat de
+
+' Persistenta: stocarea JSON o ofera, serviciile o consuma
+STORE -- IPERS
+PRED ..> IPERS : consuma
+USERS ..> IPERS : consuma
+
+' Sursa externa de date
+APIF -- IAPIF
+ROUTES ..> IAPIF : HTTPS
+
+' Antrenare offline a modelului
+SB ..> MODEL : antrenare model
+
+@enduml

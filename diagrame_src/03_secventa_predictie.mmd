@@ -1,0 +1,34 @@
+%%{init: {"theme": "default", "themeVariables": {"fontSize": "16px"}}}%%
+sequenceDiagram
+    actor U as Utilizator
+    participant FE as Frontend - pagina Meciuri
+    participant WS as winProbabilityService
+    participant BE as Backend FastAPI
+    participant AF as API-Football
+    participant MP as Mapper
+    participant PS as PredictionService - LightGBM
+    participant DB as Stocare JSON
+
+    U->>FE: Selecteaza un meci
+    FE->>WS: submitPredictionByFixtureId(fixtureId)
+    WS->>BE: POST /predict/by-fixture-id { fixture_id } + JWT
+    BE->>BE: Verifica token JWT
+
+    Note over BE,AF: Doua apeluri suplimentare catre API-Football
+    BE->>AF: GET /fixtures/statistics?fixture=ID
+    AF-->>BE: Statistici (suturi, xG, pase, posesie)
+    BE->>AF: GET /fixtures/events?fixture=ID
+    AF-->>BE: Evenimente (goluri, cartonase)
+
+    BE->>MP: map_api_football_to_match_input(...)
+    MP-->>BE: MatchInput
+
+    BE->>PS: predict(MatchInput)
+    PS->>PS: Construieste vectorul de 33 features
+    PS->>PS: LightGBM predict_proba + analiza timeline (momentum, momente decisive)
+    PS->>DB: Salveaza predictia (fisier JSON per utilizator)
+    PS-->>BE: Probabilitati + momente decisive
+
+    BE-->>WS: PredictionResponse
+    WS-->>FE: Date predictie
+    FE-->>U: Afiseaza probabilitatile, graficul si momentele cheie

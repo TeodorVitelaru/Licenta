@@ -1,0 +1,65 @@
+\documentclass[12pt]{report}
+\usepackage[language=romanian, type=bachelor]{style}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{multirow}
+\graphicspath{{figures/}}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue},
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+\begin{document}
+
+\specialization{Informatică}
+\title{Model de predicție in-game a probabilității de câștig în fotbal 
+       folosind machine learning}
+\author{Vitelaru Teodor}
+\supervisor{Asist. Dr. Briciu Anamaria}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\pagenumbering{roman}
+
+\cleardoublepage
+
+\input{chapters/chapter1_abstract}
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\input{chapters/chapter2_literature}
+\input{chapters/chapter3_methodology}
+\input{chapters/chapter4_application}
+
+\input{chapters/conclusions}
+
+\bibliographystyle{plain}
+\bibliography{reference}
+
+\end{document}
