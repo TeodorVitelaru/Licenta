@@ -216,18 +216,6 @@ const Login = () => {
           </p>
         </div>
         
-        <div className="login-hint">
-          <div className="hint-header">
-            <i className="fas fa-server"></i>
-            <span>Adresa API</span>
-          </div>
-          <div className="hint-credentials">
-            <div className="credential-item">
-              <span className="credential-label">API:</span>
-              <span className="credential-value">http://localhost:8000</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

@@ -24,68 +24,154 @@ licenta_final/
 Optional, pentru functionalitati Superliga live:
 - Cheie **API-Football** ([api-sports.io](https://www.api-sports.io/))
 
-## Rulare cu Docker (recomandat pentru demo)
+---
 
-### Ce trebuie instalat
+## Rulare cu Docker
 
-1. **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** (Windows / macOS) sau Docker Engine + Docker Compose (Linux)
-2. Verifica instalarea:
+Metoda recomandata pentru **demo si prezentare**: o singura comanda porneste backend-ul, frontend-ul si modelul ML.
 
-```bash
+### Cerinte
+
+| Componenta | Detalii |
+|------------|---------|
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Windows / macOS (include Docker Compose) |
+| Model ML | `{ROOT}/model_3_clase/experimentare/lgbm_final_model.pkl` |
+| Configurare | `backend/.env` cu `SECRET_KEY` si `API_FOOTBALL_KEY` |
+
+Verifica instalarea (PowerShell sau CMD):
+
+```powershell
 docker --version
 docker compose version
 ```
 
-3. Asigura-te ca exista modelul ML local (necesar la build):
+**Important:** ruleaza comenzile din **PowerShell / CMD** (Windows) sau **Ubuntu WSL** (cu integrare Docker activata). **Nu** folosi shell-ul intern `docker-desktop`.
+
+### Configurare (prima data)
+
+1. Porneste **Docker Desktop** si asteapta statusul **Running**.
+
+2. Copiaza sablonul de environment:
+
+```powershell
+cd E:\licenta_final
+copy .env.docker.example backend\.env
+```
+
+3. Editeaza `backend\.env`:
+
+```env
+SECRET_KEY=o-cheie-lunga-si-unica
+API_FOOTBALL_KEY=cheia_ta_de_la_api-sports.io
+API_FOOTBALL_BASE_URL=https://v3.football.api-sports.io
+SUPERLIGA_LEAGUE_ID=283
+SUPERLIGA_CACHE_SECONDS=600
+LOG_LEVEL=INFO
+```
+
+4. Verifica ca modelul exista inainte de build:
 
 ```
 model_3_clase/experimentare/lgbm_final_model.pkl
 ```
 
-4. Configureaza variabilele de mediu:
-
-```bash
-copy .env.docker.example backend\.env        # Windows
-cp .env.docker.example backend/.env          # Linux / macOS
-```
-
-Editeaza `backend/.env` si seteaza `SECRET_KEY` si `API_FOOTBALL_KEY`.
-
 ### Pornire
 
-Din radacina proiectului (`licenta_final/`):
+Din radacina proiectului:
 
-```bash
+```powershell
+cd E:\licenta_final
 docker compose up --build
 ```
 
+Prima rulare (sau dupa modificari de cod) foloseste `--build`. Urmatoarele porniri pot folosi doar:
+
+```powershell
+docker compose up
+```
+
+Ruleaza in fundal (terminal liber):
+
+```powershell
+docker compose up -d --build
+```
+
+### Acces aplicatie
+
 | Serviciu | URL |
 |----------|-----|
-| Aplicatie web | http://localhost:8080 |
-| API backend | http://localhost:8000 |
-| Swagger docs | http://localhost:8000/docs |
+| **Aplicatie web** | http://localhost:8080 |
+| **API backend** | http://localhost:8000 |
+| **Swagger (documentatie API)** | http://localhost:8000/docs |
+| **Health check** | http://localhost:8000/health |
 
-Oprire:
+Flux utilizare:
+1. Deschide http://localhost:8080
+2. **Register** → creeaza cont
+3. **Login** → autentificare
+4. Navigheaza: **Clasament**, **Meciuri**, **Analiza Meci**
 
-```bash
+### Oprire si comenzi utile
+
+```powershell
+# Oprire containere
 docker compose down
+
+# Loguri (cand ruleaza cu -d)
+docker compose logs -f
+
+# Status containere
+docker compose ps
+
+# Rebuild dupa modificari cod
+docker compose up --build
+
+# Sterge volumul cu date utilizatori (conturi, predictii)
+docker compose down -v
 ```
 
-Datele utilizatorilor (conturi, predictii) sunt pastrate in volumul Docker `backend_user_data`.
-
-### Structura Docker
+### Cum functioneaza
 
 ```
-docker-compose.yml          # Orchestreaza backend + frontend
-backend/Dockerfile          # FastAPI + model ML
-Frontend-MatchSummary-/Dockerfile   # Build React + nginx
-Frontend-MatchSummary-/nginx.conf   # Proxy API catre backend
-.dockerignore               # Exclude fisiere inutile din build
+Browser (:8080)
+    |
+    v
+[frontend]  nginx + React (build static)
+    |  proxy: /auth, /api, /predict, /matches, /health
+    v
+[backend]   FastAPI + LightGBM (:8000)
+    |
+    +-- /app/model_3_clase/experimentare/lgbm_final_model.pkl
+    +-- API-Football (cheie din backend/.env)
 ```
 
-Frontend-ul foloseste URL relativ catre API (`VITE_API_BASE_URL=""`); nginx redirectioneaza request-urile `/auth`, `/api`, `/predict`, `/matches` etc. catre containerul backend.
+- **backend** — imagine Python cu FastAPI; incarca modelul din `model_3_clase/`
+- **frontend** — build React servit de nginx; API-ul e apelat prin acelasi host (fara CORS intre porturi)
+- **backend_user_data** — volum Docker pentru date utilizatori (persista intre restarturi)
 
-## Pornire rapida (fara Docker)
+### Fisiere Docker
+
+```
+docker-compose.yml                    # Orchestreaza serviciile
+backend/Dockerfile                    # Imagine backend
+Frontend-MatchSummary-/Dockerfile     # Build frontend + nginx
+Frontend-MatchSummary-/nginx.conf     # Proxy API catre backend
+.dockerignore                         # Exclude fisiere din build
+.env.docker.example                   # Sablon pentru backend/.env
+```
+
+### Cand folosesti `--build`
+
+| Situatie | Comanda |
+|----------|---------|
+| Prima pornire | `docker compose up --build` |
+| Porniri ulterioare (fara schimbari) | `docker compose up` |
+| Ai modificat cod backend/frontend | `docker compose up --build` |
+| Ai schimbat doar `backend/.env` | `docker compose down` apoi `docker compose up` |
+
+---
+
+## Pornire rapida (fara Docker — development)
 
 Aplicatia ruleaza in doua procese: backend (port 8000) si frontend (port 5173).
 
@@ -228,6 +314,31 @@ pdflatex main.tex
 | GET | `/matches/{match_id}` | Detalii predictie |
 
 ## Depanare
+
+### Docker
+
+**`permission denied` / `docker.sock` (WSL)**
+- Ruleaza din **PowerShell**, nu din shell-ul `docker-desktop`
+- Docker Desktop → Settings → WSL Integration → activeaza Ubuntu
+
+**`Cannot connect to the Docker daemon`**
+- Porneste Docker Desktop si asteapta statusul Running
+
+**Backend unhealthy / model error**
+- Verifica `model_3_clase/experimentare/lgbm_final_model.pkl` exista inainte de `docker compose up --build`
+- Consulta loguri: `docker compose logs backend`
+
+**Clasament / meciuri goale**
+- Adauga `API_FOOTBALL_KEY` valid in `backend/.env`
+- Reporneste: `docker compose down` apoi `docker compose up`
+
+**Port 8080 sau 8000 ocupat**
+- Opreste alte procese pe aceste porturi sau modifica porturile in `docker-compose.yml`
+
+**Modificari `.env` nu se aplica**
+- `docker compose down` apoi `docker compose up` (rebuild nu e necesar pentru .env)
+
+### Rulare locala (fara Docker)
 
 **Modelul nu se incarca**
 - Verifica existenta fisierului `model_3_clase/experimentare/lgbm_final_model.pkl`

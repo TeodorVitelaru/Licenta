@@ -95,8 +95,8 @@ rps_mean, rps_per_sample = ranked_probability_score(
     y_test.values, y_pred_proba)
 
 print(f" Ranked Probability Score (RPS): {rps_mean:.4f}")
-print(f"   → RPS median: {np.median(rps_per_sample):.4f}")
-print(f"   → RPS std dev: {np.std(rps_per_sample):.4f}")
+print(f"   RPS median: {np.median(rps_per_sample):.4f}")
+print(f"   RPS std dev: {np.std(rps_per_sample):.4f}")
 
 # BRIER SCORE PER CLASA
 print(f"\n" + "=" * 100)
@@ -152,7 +152,7 @@ for idx, (outcome_name, color) in enumerate(zip(outcomes, colors)):
 
 plt.tight_layout()
 plt.savefig('calibration_curves_multiclass.png', dpi=150, bbox_inches='tight')
-print(f"✓ Grafic salvat: calibration_curves_multiclass.png")
+print(f" Grafic salvat: calibration_curves_multiclass.png")
 
 # Calculam calibration error
 cal_errors = []
@@ -301,7 +301,7 @@ baseline_score_rps = baseline_rps
 baseline_uniform_rps = uniform_rps
 
 print(f"\n" + "=" * 100)
-print(" ANALIZA DISTRIBUȚIEI PROBABILITĂȚILOR")
+print(" ANALIZA DISTRIBUTIEI PROBABILITATILOR")
 print("=" * 100)
 
 fig, axes = plt.subplots(1, 3, figsize=(18, 5))
