@@ -1,0 +1,23 @@
+{
+  "minute": 45,
+  "score_home": 1,
+  "score_away": 0,
+  "xg_home": 1.4,
+  "xg_away": 0.7,
+  "shots_home": 8,
+  "shots_away": 4,
+  "shots_on_target_home": 4,
+  "shots_on_target_away": 2,
+  "passes_home": 340,
+  "passes_away": 290,
+  "pressure_home": 62,
+  "pressure_away": 38,
+  "red_cards_home": 0,
+  "red_cards_away": 0,
+  "yellow_cards_home": 1,
+  "yellow_cards_away": 2,
+  "is_home_team": 1,
+  "under_pressure": 0,
+  "counterpress": 1,
+  "match_id": "test_match_001"
+}

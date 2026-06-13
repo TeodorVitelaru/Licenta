@@ -1,0 +1,381 @@
+/* KeyEvents Component Styles */
+
+.key-events {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.events-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1e293b;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.events-title i {
+  color: #8b5cf6;
+  font-size: 1.3rem;
+}
+
+.events-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0 0 24px 0;
+}
+
+.no-events {
+  color: #94a3b8;
+  font-style: italic;
+  text-align: center;
+  padding: 32px 0;
+}
+
+.events-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.event-card {
+  position: relative;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: 10px;
+  border-left: 4px solid #cbd5e1;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline connector line */
+.timeline-connector {
+  position: absolute;
+  left: 42px;
+  bottom: -20px;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(180deg, #cbd5e1 0%, transparent 100%);
+  z-index: 0;
+}
+
+/* Event Header */
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.event-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.event-icon.event-type-home {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.event-icon.event-type-away {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.event-icon.event-type-red {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.event-icon.event-type-turning {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+.event-icon.event-type-neutral {
+  background: linear-gradient(135deg, #64748b, #94a3b8);
+}
+
+.event-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.event-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.event-time i {
+  color: #8b5cf6;
+  font-size: 1rem;
+}
+
+.event-score {
+  background: #1e293b;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* Impact Badge */
+.impact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.impact-badge i {
+  font-size: 0.85rem;
+}
+
+.impact-critical {
+  background: linear-gradient(135deg, #fecaca, #fca5a5);
+  color: #7f1d1d;
+  border: 1px solid #dc2626;
+}
+
+.impact-high {
+  background: linear-gradient(135deg, #fed7aa, #fdba74);
+  color: #7c2d12;
+  border: 1px solid #f97316;
+}
+
+.impact-medium {
+  background: linear-gradient(135deg, #fef08a, #fde047);
+  color: #713f12;
+  border: 1px solid #eab308;
+}
+
+.impact-low {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #064e3b;
+  border: 1px solid #10b981;
+}
+
+/* Event Body */
+.event-body {
+  margin-left: 52px;
+}
+
+.event-type-label {
+  color: #8b5cf6;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.event-description {
+  color: #1e293b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+/* Probability Shift */
+.probability-shift {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.shift-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.shift-label i {
+  color: #8b5cf6;
+}
+
+.shift-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: auto;
+}
+
+.shift-value.positive {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.shift-value.negative {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+.shift-value i {
+  font-size: 0.9rem;
+}
+
+/* Probability Comparison */
+.probability-comparison {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #8b5cf6;
+}
+
+.prob-before,
+.prob-after {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.prob-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.prob-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.prob-arrow {
+  color: #8b5cf6;
+  font-size: 1.2rem;
+  margin: 0 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .key-events {
+    padding: 16px;
+  }
+
+  .events-title {
+    font-size: 1.2rem;
+  }
+
+  .event-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .event-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .event-meta {
+    flex: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .impact-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .event-body {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+  .timeline-connector {
+    left: 18px;
+  }
+
+  .probability-shift {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .shift-value {
+    margin-left: 0;
+  }
+
+  .probability-comparison {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .prob-arrow {
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-time {
+    font-size: 1rem;
+  }
+
+  .event-score {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+  }
+
+  .event-description {
+    font-size: 0.9rem;
+  }
+
+  .shift-label {
+    font-size: 0.8rem;
+  }
+
+  .shift-value {
+    font-size: 0.85rem;
+  }
+}

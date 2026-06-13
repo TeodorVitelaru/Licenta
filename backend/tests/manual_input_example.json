@@ -1,0 +1,61 @@
+{
+  "match_id": "farul_constanta_vs_fcsb_2026_03_29",
+  "minute": 45,
+  "score_home": 2,
+  "score_away": 1,
+  "xg_home": 1.8,
+  "xg_away": 0.9,
+  "shots_home": 12,
+  "shots_away": 8,
+  "shots_on_target_home": 5,
+  "shots_on_target_away": 3,
+  "passes_home": 425,
+  "passes_away": 380,
+  "pressure_home": 65.0,
+  "pressure_away": 35.0,
+  "yellow_cards_home": 2,
+  "yellow_cards_away": 1,
+  "red_cards_home": 0,
+  "red_cards_away": 0,
+  "is_home_team": 1,
+  "under_pressure": 0,
+  "counterpress": 1,
+  
+  "events": [
+    {
+      "minute": 12,
+      "event_type": "goal",
+      "team": "home",
+      "player": "Grozav",
+      "additional_info": "Gol din acțiune după o trecere de Bodea"
+    },
+    {
+      "minute": 28,
+      "event_type": "yellow_card",
+      "team": "away",
+      "player": "Dawa Tchakanda",
+      "additional_info": "Fault tactic"
+    },
+    {
+      "minute": 35,
+      "event_type": "goal",
+      "team": "away",
+      "player": "Pantilimon",
+      "additional_info": "Contraatac rapid"
+    },
+    {
+      "minute": 42,
+      "event_type": "yellow_card",
+      "team": "home",
+      "player": "Șeroni",
+      "additional_info": "Joc periculos"
+    },
+    {
+      "minute": 45,
+      "event_type": "goal",
+      "team": "home",
+      "player": "Irimia",
+      "additional_info": "Gol în timp de prelungire"
+    }
+  ]
+}

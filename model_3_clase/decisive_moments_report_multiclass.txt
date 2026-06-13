@@ -1,0 +1,607 @@
+====================================================================================================
+RAPORT MOMENTE DECISIVE - MODEL MULTICLASS (3 CLASE)
+====================================================================================================
+
+Total momente decisive detectate: 184,395
+Top 100 momente cu cel mai mare impact:
+
+#1. PENALTY marcat de Harry Kane in minutul 120
+Probabilitati: Home 88.5→3.0% | Draw 9.9→94.0% | Away 1.6→3.0%
+Impact maxim: 85.5% (home)
+Match ID: 3795506 | Scor: 2-2
+xG: 2.87 - 1.21
+
+#2. PENALTY marcat de Nicolas Pepe in minutul 121
+Probabilitati: Home 87.0→4.4% | Draw 11.5→90.9% | Away 1.6→4.7%
+Impact maxim: 82.5% (home)
+Match ID: 3922242 | Scor: 2-2
+xG: 2.10 - 1.90
+
+#3. GOL marcat de Luis Alberto Suarez Diaz in minutul 91
+Probabilitati: Home 91.5→9.2% | Draw 6.6→82.6% | Away 1.9→8.2%
+Impact maxim: 82.4% (home)
+Match ID: 3943076 | Scor: 2-2
+xG: 2.29 - 1.52
+
+#4. PENALTY marcat de Samuel Moutoussamy in minutul 121
+Probabilitati: Home 87.9→6.1% | Draw 10.7→89.3% | Away 1.4→4.6%
+Impact maxim: 81.8% (home)
+Match ID: 3922240 | Scor: 2-2
+xG: 2.16 - 2.36
+
+#5. PENALTY marcat de Ayush Adhikari in minutul 125
+Probabilitati: Home 89.0→7.5% | Draw 9.6→87.2% | Away 1.4→5.3%
+Impact maxim: 81.4% (home)
+Match ID: 3827767 | Scor: 2-2
+xG: 2.43 - 3.54
+
+#6. GOL marcat de Timo Werner in minutul 89
+Probabilitati: Home 88.3→7.6% | Draw 9.7→82.7% | Away 2.0→9.7%
+Impact maxim: 80.7% (home)
+Match ID: 3890327 | Scor: 2-2
+xG: 1.59 - 1.44
+
+#7. GOL marcat de Chloe Kelly in minutul 118
+Probabilitati: Home 11.8→92.3% | Draw 82.3→6.2% | Away 5.9→1.5%
+Impact maxim: 80.5% (home)
+Match ID: 4020005 | Scor: 2-1
+xG: 3.05 - 1.18
+
+#8. PENALTY marcat de Exequiel Alejandro Palacios in minutul 93
+Probabilitati: Home 91.5→11.1% | Draw 7.0→82.4% | Away 1.5→6.5%
+Impact maxim: 80.4% (home)
+Match ID: 3895074 | Scor: 2-2
+xG: 2.21 - 2.22
+
+#9. GOL marcat de Raffael Caetano de Araujo in minutul 87
+Probabilitati: Home 89.0→8.8% | Draw 9.2→83.6% | Away 1.7→7.7%
+Impact maxim: 80.3% (home)
+Match ID: 3890447 | Scor: 2-2
+xG: 2.15 - 1.35
+
+#10. GOL marcat de Alejandro Bergantinos Garcia in minutul 85
+Probabilitati: Home 92.9→12.9% | Draw 5.7→76.7% | Away 1.4→10.4%
+Impact maxim: 79.9% (home)
+Match ID: 266961 | Scor: 2-2
+xG: 1.04 - 0.97
+
+#11. GOL marcat de Jermain Defoe in minutul 84
+Probabilitati: Home 10.6→3.4% | Draw 81.0→8.3% | Away 8.4→88.3%
+Impact maxim: 79.9% (away)
+Match ID: 3754071 | Scor: 2-3
+xG: 1.26 - 2.18
+
+#12. GOL marcat de Francesco Totti in minutul 85
+Probabilitati: Home 2.8→10.1% | Draw 8.5→81.0% | Away 88.7→8.9%
+Impact maxim: 79.8% (away)
+Match ID: 3879828 | Scor: 2-2
+xG: 1.48 - 2.05
+
+#13. GOL marcat de Andrea Belotti in minutul 93
+Probabilitati: Home 91.6→12.2% | Draw 6.7→76.8% | Away 1.7→11.0%
+Impact maxim: 79.4% (home)
+Match ID: 3879719 | Scor: 2-2
+xG: 0.67 - 1.90
+
+#14. GOL marcat de Sadio Mane in minutul 85
+Probabilitati: Home 12.6→91.9% | Draw 78.5→6.3% | Away 8.9→1.7%
+Impact maxim: 79.3% (home)
+Match ID: 3754064 | Scor: 3-2
+xG: 1.90 - 1.49
+
+#15. PENALTY marcat de Mohamed Abdel Monem in minutul 120
+Probabilitati: Home 8.6→87.7% | Draw 85.7→10.9% | Away 5.7→1.4%
+Impact maxim: 79.1% (home)
+Match ID: 3922240 | Scor: 2-1
+xG: 2.16 - 1.57
+
+#16. GOL marcat de Raul Tamudo Montero in minutul 90
+Probabilitati: Home 92.5→13.4% | Draw 6.2→81.2% | Away 1.3→5.4%
+Impact maxim: 79.1% (home)
+Match ID: 69165 | Scor: 2-2
+xG: 2.50 - 1.13
+
+#17. GOL marcat de Ismael Lopez Blanco in minutul 90
+Probabilitati: Home 3.1→10.6% | Draw 8.4→79.9% | Away 88.5→9.5%
+Impact maxim: 79.0% (away)
+Match ID: 3825839 | Scor: 1-1
+xG: 1.56 - 1.80
+
+#18. GOL marcat de John Terry in minutul 97
+Probabilitati: Home 9.6→88.6% | Draw 83.1→9.3% | Away 7.3→2.1%
+Impact maxim: 79.0% (home)
+Match ID: 3754125 | Scor: 3-2
+xG: 2.17 - 1.35
+
+#19. GOL marcat de James Morrison in minutul 58
+Probabilitati: Home 3.1→13.0% | Draw 4.1→73.2% | Away 92.7→13.8%
+Impact maxim: 78.9% (away)
+Match ID: 3754059 | Scor: 2-3
+xG: 1.25 - 1.92
+
+#20. GOL marcat de Lautaro Javier Martinez in minutul 111
+Probabilitati: Home 12.3→91.0% | Draw 78.6→6.7% | Away 9.2→2.3%
+Impact maxim: 78.7% (home)
+Match ID: 3943077 | Scor: 1-0
+xG: 1.08 - 0.86
+
+#21. GOL marcat de Riola Xhemaili in minutul 91
+Probabilitati: Home 88.7→10.1% | Draw 9.1→80.1% | Away 2.2→9.8%
+Impact maxim: 78.6% (home)
+Match ID: 3998852 | Scor: 1-1
+xG: 1.02 - 1.20
+
+#22. GOL marcat de Jose Ramiro Funes Mori in minutul 89
+Probabilitati: Home 88.3→9.8% | Draw 9.7→81.8% | Away 1.9→8.4%
+Impact maxim: 78.6% (home)
+Match ID: 3754125 | Scor: 2-2
+xG: 1.85 - 1.35
+
+#23. GOL marcat de Sergio Ramos Garcia in minutul 89
+Probabilitati: Home 91.8→13.3% | Draw 6.0→75.7% | Away 2.2→11.0%
+Impact maxim: 78.5% (home)
+Match ID: 267076 | Scor: 1-1
+xG: 1.10 - 1.11
+
+#24. GOL marcat de Robert Andrich in minutul 95
+Probabilitati: Home 3.0→9.5% | Draw 11.4→83.4% | Away 85.6→7.1%
+Impact maxim: 78.4% (away)
+Match ID: 3895320 | Scor: 2-2
+xG: 1.65 - 1.80
+
+#25. GOL marcat de Anthony Ujah in minutul 91
+Probabilitati: Home 21.7→3.4% | Draw 68.7→8.5% | Away 9.6→88.0%
+Impact maxim: 78.4% (away)
+Match ID: 3890294 | Scor: 1-2
+xG: 0.58 - 1.45
+
+#26. GOL marcat de Kamil Grosicki in minutul 91
+Probabilitati: Home 11.4→2.5% | Draw 78.7→9.2% | Away 9.9→88.2%
+Impact maxim: 78.4% (away)
+Match ID: 3901158 | Scor: 1-2
+xG: 0.41 - 1.72
+
+#27. GOL marcat de Francisco Roman Alarcon Suarez in minutul 91
+Probabilitati: Home 11.5→2.4% | Draw 78.2→8.9% | Away 10.3→88.7%
+Impact maxim: 78.3% (away)
+Match ID: 3825798 | Scor: 1-2
+xG: 1.18 - 1.83
+
+#28. GOL marcat de Jonathas Cristian de Jesus in minutul 86
+Probabilitati: Home 2.8→8.7% | Draw 11.0→83.4% | Away 86.2→7.9%
+Impact maxim: 78.3% (away)
+Match ID: 3825592 | Scor: 2-2
+xG: 1.51 - 1.77
+
+#29. PENALTY marcat de Ricardo Ivan Rodriguez Araya in minutul 90
+Probabilitati: Home 3.8→13.9% | Draw 9.5→77.6% | Away 86.7→8.5%
+Impact maxim: 78.2% (away)
+Match ID: 3890388 | Scor: 1-1
+xG: 1.86 - 2.02
+
+#30. GOL marcat de Panagiotis Tachtsidis in minutul 92
+Probabilitati: Home 12.8→91.0% | Draw 75.1→7.0% | Away 12.1→2.0%
+Impact maxim: 78.2% (home)
+Match ID: 3879570 | Scor: 3-2
+xG: 1.07 - 1.87
+
+#31. GOL marcat de Lionel Andres Messi Cuccittini in minutul 88
+Probabilitati: Home 85.8→7.6% | Draw 12.4→85.4% | Away 1.8→7.0%
+Impact maxim: 78.2% (home)
+Match ID: 9860 | Scor: 2-2
+xG: 2.61 - 2.05
+
+#32. PENALTY marcat de Jonathan David in minutul 120
+Probabilitati: Home 84.6→6.5% | Draw 13.4→87.6% | Away 2.0→5.9%
+Impact maxim: 78.1% (home)
+Match ID: 3942229 | Scor: 2-2
+xG: 1.71 - 2.14
+
+#33. GOL marcat de Mateo Pablo Musacchio in minutul 87
+Probabilitati: Home 88.6→10.7% | Draw 9.2→77.6% | Away 2.2→11.7%
+Impact maxim: 78.0% (home)
+Match ID: 3825744 | Scor: 2-2
+xG: 1.04 - 1.06
+
+#34. GOL marcat de Francisco Alcacer Garcia in minutul 87
+Probabilitati: Home 3.0→19.7% | Draw 8.0→69.2% | Away 89.0→11.1%
+Impact maxim: 77.9% (away)
+Match ID: 3825736 | Scor: 2-2
+xG: 0.86 - 1.70
+
+#35. GOL marcat de Adam David Lallana in minutul 94
+Probabilitati: Home 11.3→2.9% | Draw 77.7→8.2% | Away 11.0→88.8%
+Impact maxim: 77.8% (away)
+Match ID: 3754348 | Scor: 4-5
+xG: 1.23 - 1.62
+
+#36. PENALTY marcat de Cole Palmer in minutul 120
+Probabilitati: Home 8.1→85.9% | Draw 85.4→12.0% | Away 6.5→2.1%
+Impact maxim: 77.8% (home)
+Match ID: 3942227 | Scor: 2-1
+xG: 1.32 - 1.20
+
+#37. GOL marcat de Deshorn Brown in minutul 90
+Probabilitati: Home 93.2→15.4% | Draw 4.8→75.4% | Away 1.9→9.1%
+Impact maxim: 77.8% (home)
+Match ID: 3813302 | Scor: 2-2
+xG: 2.85 - 1.52
+
+#38. GOL marcat de Mikel Oyarzabal Ugarte in minutul 93
+Probabilitati: Home 12.3→3.4% | Draw 77.2→8.5% | Away 10.6→88.1%
+Impact maxim: 77.6% (away)
+Match ID: 3825849 | Scor: 0-1
+xG: 0.81 - 1.04
+
+#39. GOL marcat de Thiago Xavier Rodrigues Correa in minutul 92
+Probabilitati: Home 2.9→10.7% | Draw 8.9→78.7% | Away 88.2→10.7%
+Impact maxim: 77.6% (away)
+Match ID: 3829427 | Scor: 3-3
+xG: 1.30 - 2.10
+
+#40. GOL marcat de Admir Mehmedi in minutul 88
+Probabilitati: Home 13.1→90.7% | Draw 80.1→7.7% | Away 6.8→1.6%
+Impact maxim: 77.6% (home)
+Match ID: 3890346 | Scor: 4-3
+xG: 2.96 - 1.79
+
+#41. PENALTY marcat de Kalidou Koulibaly in minutul 120
+Probabilitati: Home 9.2→86.7% | Draw 83.4→11.7% | Away 7.4→1.6%
+Impact maxim: 77.5% (home)
+Match ID: 3922242 | Scor: 2-1
+xG: 2.10 - 1.12
+
+#42. GOL marcat de Ellen White in minutul 91
+Probabilitati: Home 9.4→2.9% | Draw 81.5→10.4% | Away 9.2→86.7%
+Impact maxim: 77.5% (away)
+Match ID: 19789 | Scor: 2-3
+xG: 1.00 - 1.18
+
+#43. GOL marcat de Ousmane Dembele in minutul 89
+Probabilitati: Home 88.6→11.2% | Draw 9.4→78.9% | Away 2.0→10.0%
+Impact maxim: 77.4% (home)
+Match ID: 3901158 | Scor: 1-1
+xG: 0.40 - 1.67
+
+#44. PENALTY marcat de Ashley Cole in minutul 125
+Probabilitati: Home 91.8→14.4% | Draw 6.5→77.8% | Away 1.7→7.7%
+Impact maxim: 77.4% (home)
+Match ID: 18237 | Scor: 4-4
+xG: 6.62 - 3.43
+
+#45. GOL marcat de Ruby Mace in minutul 93
+Probabilitati: Home 88.1→10.7% | Draw 10.0→79.4% | Away 1.9→9.9%
+Impact maxim: 77.4% (home)
+Match ID: 3775643 | Scor: 2-2
+xG: 1.30 - 0.72
+
+#46. PENALTY marcat de Francesco Totti in minutul 88
+Probabilitati: Home 10.0→87.3% | Draw 81.1→10.4% | Away 8.9→2.3%
+Impact maxim: 77.3% (home)
+Match ID: 3879828 | Scor: 3-2
+xG: 2.26 - 2.05
+
+#47. GOL marcat de Mark Uth in minutul 84
+Probabilitati: Home 12.6→89.7% | Draw 78.2→8.7% | Away 9.2→1.6%
+Impact maxim: 77.1% (home)
+Match ID: 3890524 | Scor: 2-1
+xG: 1.33 - 1.41
+
+#48. GOL marcat de So-Yun Ji in minutul 88
+Probabilitati: Home 84.5→7.5% | Draw 13.3→83.0% | Away 2.2→9.6%
+Impact maxim: 77.1% (home)
+Match ID: 19755 | Scor: 2-2
+xG: 2.03 - 2.38
+
+#49. GOL marcat de Abdelhamid El Kaoutari in minutul 90
+Probabilitati: Home 14.6→91.6% | Draw 75.3→6.8% | Away 10.1→1.7%
+Impact maxim: 77.0% (home)
+Match ID: 3878544 | Scor: 1-0
+xG: 1.22 - 0.62
+
+#50. GOL marcat de Jamie Vardy in minutul 90
+Probabilitati: Home 85.7→8.9% | Draw 12.4→80.6% | Away 1.9→10.6%
+Impact maxim: 76.8% (home)
+Match ID: 3754302 | Scor: 2-2
+xG: 1.36 - 2.06
+
+#51. GOL marcat de Mostafa Mohamed Ahmed Abdallah in minutul 92
+Probabilitati: Home 12.9→2.6% | Draw 74.7→8.3% | Away 12.3→89.1%
+Impact maxim: 76.8% (away)
+Match ID: 3920411 | Scor: 1-2
+xG: 0.29 - 1.76
+
+#52. PENALTY marcat de Domenico Berardi in minutul 120
+Probabilitati: Home 11.9→88.6% | Draw 83.7→9.8% | Away 4.4→1.5%
+Impact maxim: 76.8% (home)
+Match ID: 3795506 | Scor: 2-1
+xG: 2.87 - 0.43
+
+#53. GOL marcat de Jose Maria Gimenez de Vargas in minutul 88
+Probabilitati: Home 13.1→3.6% | Draw 74.7→7.5% | Away 12.2→89.0%
+Impact maxim: 76.8% (away)
+Match ID: 7578 | Scor: 0-1
+xG: 0.34 - 1.94
+
+#54. GOL marcat de Tom Cleverley in minutul 92
+Probabilitati: Home 11.2→3.1% | Draw 77.5→8.9% | Away 11.4→88.0%
+Impact maxim: 76.7% (away)
+Match ID: 3753974 | Scor: 0-1
+xG: 1.22 - 1.81
+
+#55. GOL marcat de Wout Weghorst in minutul 100
+Probabilitati: Home 3.0→12.5% | Draw 11.5→78.6% | Away 85.4→8.9%
+Impact maxim: 76.5% (away)
+Match ID: 3869321 | Scor: 2-2
+xG: 0.52 - 1.44
+
+#56. GOL marcat de Samantha May Kerr in minutul 86
+Probabilitati: Home 12.7→89.2% | Draw 76.0→8.7% | Away 11.3→2.1%
+Impact maxim: 76.5% (home)
+Match ID: 7485 | Scor: 1-0
+xG: 1.26 - 1.52
+
+#57. PENALTY marcat de Christian Benteke Liolo in minutul 95
+Probabilitati: Home 18.6→3.2% | Draw 68.7→7.6% | Away 12.7→89.2%
+Impact maxim: 76.5% (away)
+Match ID: 3754220 | Scor: 1-2
+xG: 1.18 - 1.80
+
+#58. GOL marcat de Hernan Arsenio Perez Gonzalez in minutul 89
+Probabilitati: Home 7.5→2.8% | Draw 85.8→14.0% | Away 6.7→83.2%
+Impact maxim: 76.5% (away)
+Match ID: 3825592 | Scor: 2-3
+xG: 1.51 - 1.85
+
+#59. GOL marcat de Giuseppe Rossi in minutul 89
+Probabilitati: Home 13.7→90.2% | Draw 75.8→8.2% | Away 10.4→1.6%
+Impact maxim: 76.4% (home)
+Match ID: 3825860 | Scor: 2-1
+xG: 0.82 - 1.49
+
+#60. GOL marcat de Roozbeh Cheshmi in minutul 97
+Probabilitati: Home 10.6→3.1% | Draw 78.8→9.9% | Away 10.6→87.0%
+Impact maxim: 76.4% (away)
+Match ID: 3857273 | Scor: 0-1
+xG: 0.62 - 1.25
+
+#61. GOL marcat de Mario Gavranovic in minutul 89
+Probabilitati: Home 84.9→8.6% | Draw 13.0→84.7% | Away 2.1→6.6%
+Impact maxim: 76.3% (home)
+Match ID: 3794691 | Scor: 3-3
+xG: 2.02 - 1.73
+
+#62. GOL marcat de Ishan Pandita in minutul 92
+Probabilitati: Home 15.6→91.7% | Draw 75.3→6.2% | Away 9.1→2.0%
+Impact maxim: 76.2% (home)
+Match ID: 3813302 | Scor: 3-2
+xG: 3.34 - 1.52
+
+#63. GOL marcat de Sebastien Aymar Bassong Nguena in minutul 91
+Probabilitati: Home 3.3→11.7% | Draw 9.5→77.2% | Away 87.2→11.1%
+Impact maxim: 76.0% (away)
+Match ID: 3754348 | Scor: 4-4
+xG: 1.23 - 1.47
+
+#64. PENALTY marcat de Aleksandar Mitrovic in minutul 85
+Probabilitati: Home 87.2→11.2% | Draw 10.6→77.0% | Away 2.2→11.8%
+Impact maxim: 76.0% (home)
+Match ID: 3754243 | Scor: 2-2
+xG: 1.40 - 1.36
+
+#65. GOL marcat de Troy Deeney in minutul 92
+Probabilitati: Home 17.4→93.5% | Draw 74.4→4.8% | Away 8.2→1.7%
+Impact maxim: 76.0% (home)
+Match ID: 3754063 | Scor: 3-2
+xG: 1.13 - 0.62
+
+#66. PENALTY marcat de Troy Deeney in minutul 86
+Probabilitati: Home 3.3→11.1% | Draw 9.6→77.8% | Away 87.1→11.1%
+Impact maxim: 76.0% (away)
+Match ID: 3754185 | Scor: 1-1
+xG: 1.60 - 0.90
+
+#67. PENALTY marcat de Benjamin Moukandjo Bile in minutul 90
+Probabilitati: Home 4.5→14.1% | Draw 12.1→78.4% | Away 83.4→7.4%
+Impact maxim: 76.0% (away)
+Match ID: 3829431 | Scor: 1-1
+xG: 1.52 - 1.67
+
+#68. GOL marcat de Willian Jose da Silva in minutul 86
+Probabilitati: Home 3.8→17.1% | Draw 7.5→70.2% | Away 88.8→12.8%
+Impact maxim: 76.0% (away)
+Match ID: 3825879 | Scor: 1-1
+xG: 1.30 - 0.91
+
+#69. GOL marcat de Luka Jovic in minutul 94
+Probabilitati: Home 87.8→11.8% | Draw 9.8→77.7% | Away 2.4→10.5%
+Impact maxim: 76.0% (home)
+Match ID: 3930170 | Scor: 1-1
+xG: 1.55 - 1.46
+
+#70. GOL marcat de Alvaro Negredo Sanchez in minutul 90
+Probabilitati: Home 14.7→90.6% | Draw 77.0→7.7% | Away 8.4→1.7%
+Impact maxim: 75.9% (home)
+Match ID: 3825831 | Scor: 2-1
+xG: 1.72 - 0.95
+
+#71. GOL marcat de Georgia Stanway in minutul 85
+Probabilitati: Home 2.8→17.5% | Draw 6.5→67.8% | Away 90.6→14.8%
+Impact maxim: 75.9% (away)
+Match ID: 7298 | Scor: 2-2
+xG: 0.97 - 2.76
+
+#72. PENALTY marcat de Jose Salomon Rondon Gimenez in minutul 120
+Probabilitati: Home 8.8→84.7% | Draw 84.1→13.3% | Away 7.1→2.0%
+Impact maxim: 75.9% (home)
+Match ID: 3942229 | Scor: 2-1
+xG: 1.71 - 1.35
+
+#73. GOL marcat de Michelle Agyemang in minutul 95
+Probabilitati: Home 4.6→16.2% | Draw 10.4→74.7% | Away 85.0→9.2%
+Impact maxim: 75.8% (away)
+Match ID: 4020005 | Scor: 1-1
+xG: 1.49 - 1.16
+
+#74. GOL marcat de Federico Chiesa in minutul 94
+Probabilitati: Home 14.6→90.3% | Draw 76.3→7.6% | Away 9.0→2.0%
+Impact maxim: 75.7% (home)
+Match ID: 3794685 | Scor: 1-0
+xG: 1.03 - 0.46
+
+#75. PENALTY marcat de Mohamed Salah in minutul 96
+Probabilitati: Home 3.7→12.0% | Draw 13.8→81.2% | Away 82.6→6.9%
+Impact maxim: 75.7% (away)
+Match ID: 3920385 | Scor: 2-2
+xG: 1.93 - 0.73
+
+#76. GOL marcat de Kylian Mbappe Lottin in minutul 91
+Probabilitati: Home 15.8→91.5% | Draw 75.7→7.0% | Away 8.5→1.6%
+Impact maxim: 75.7% (home)
+Match ID: 3837896 | Scor: 3-2
+xG: 1.47 - 0.37
+
+#77. GOL marcat de Chloe Kelly in minutul 109
+Probabilitati: Home 10.9→86.5% | Draw 81.9→12.0% | Away 7.2→1.5%
+Impact maxim: 75.6% (home)
+Match ID: 3847567 | Scor: 2-1
+xG: 1.59 - 1.72
+
+#78. GOL marcat de Theoson Jordan Siebatcheu in minutul 86
+Probabilitati: Home 12.5→2.9% | Draw 75.7→9.8% | Away 11.8→87.4%
+Impact maxim: 75.6% (away)
+Match ID: 3829420 | Scor: 1-2
+xG: 0.83 - 2.05
+
+#79. GOL marcat de Victoria Pelova in minutul 88
+Probabilitati: Home 13.2→3.1% | Draw 75.1→9.7% | Away 11.6→87.3%
+Impact maxim: 75.6% (away)
+Match ID: 3835339 | Scor: 1-2
+xG: 1.31 - 1.69
+
+#80. GOL marcat de Mauro Emanuel Icardi Rivero in minutul 92
+Probabilitati: Home 14.8→90.4% | Draw 76.5→7.9% | Away 8.7→1.7%
+Impact maxim: 75.6% (home)
+Match ID: 3802752 | Scor: 2-1
+xG: 2.01 - 0.68
+
+#81. GOL marcat de Ollie Watkins in minutul 90
+Probabilitati: Home 11.2→2.4% | Draw 75.9→9.2% | Away 12.9→88.4%
+Impact maxim: 75.6% (away)
+Match ID: 3942819 | Scor: 1-2
+xG: 0.41 - 1.25
+
+#82. GOL marcat de Hee-Chan Hwang in minutul 90
+Probabilitati: Home 12.3→87.8% | Draw 75.0→10.0% | Away 12.7→2.2%
+Impact maxim: 75.5% (home)
+Match ID: 3857262 | Scor: 2-1
+xG: 1.40 - 0.97
+
+#83. PENALTY marcat de Francesc Fabregas i Soler in minutul 88
+Probabilitati: Home 4.5→19.8% | Draw 12.6→72.8% | Away 82.9→7.4%
+Impact maxim: 75.5% (away)
+Match ID: 3753973 | Scor: 2-2
+xG: 2.32 - 0.84
+
+#84. GOL marcat de Kevin Csoboth in minutul 99
+Probabilitati: Home 16.3→3.9% | Draw 73.1→10.2% | Away 10.5→86.0%
+Impact maxim: 75.5% (away)
+Match ID: 3930177 | Scor: 0-1
+xG: 0.18 - 1.00
+
+#85. GOL marcat de Antonio Candreva in minutul 86
+Probabilitati: Home 15.4→2.9% | Draw 75.5→12.5% | Away 9.1→84.5%
+Impact maxim: 75.5% (away)
+Match ID: 3879659 | Scor: 1-2
+xG: 0.62 - 1.83
+
+#86. GOL marcat de Javier Siverio Toro in minutul 90
+Probabilitati: Home 12.7→2.8% | Draw 75.8→10.3% | Away 11.5→86.9%
+Impact maxim: 75.4% (away)
+Match ID: 3813264 | Scor: 1-2
+xG: 0.73 - 1.40
+
+#87. GOL marcat de Carlos Henrique Casimiro in minutul 88
+Probabilitati: Home 16.6→2.4% | Draw 70.7→9.5% | Away 12.7→88.1%
+Impact maxim: 75.4% (away)
+Match ID: 3825879 | Scor: 1-2
+xG: 1.30 - 1.00
+
+#88. GOL marcat de Grzegorz Krychowiak in minutul 85
+Probabilitati: Home 3.7→15.4% | Draw 11.5→75.1% | Away 84.9→9.5%
+Impact maxim: 75.4% (away)
+Match ID: 7539 | Scor: 1-1
+xG: 1.03 - 1.43
+
+#89. GOL marcat de Martin Braithwaite Christensen in minutul 90
+Probabilitati: Home 5.9→25.2% | Draw 9.3→65.4% | Away 84.8→9.4%
+Impact maxim: 75.3% (away)
+Match ID: 3901147 | Scor: 1-1
+xG: 1.42 - 0.98
+
+#90. GOL marcat de Kylian Mbappe Lottin in minutul 89
+Probabilitati: Home 11.3→2.5% | Draw 75.5→9.1% | Away 13.2→88.4%
+Impact maxim: 75.3% (away)
+Match ID: 3837902 | Scor: 1-2
+xG: 0.62 - 2.47
+
+#91. GOL marcat de Fabio Borini in minutul 89
+Probabilitati: Home 3.6→12.9% | Draw 12.2→78.2% | Away 84.2→9.0%
+Impact maxim: 75.3% (away)
+Match ID: 3754050 | Scor: 2-2
+xG: 1.06 - 1.04
+
+#92. GOL marcat de Deyverson Brum Silva Acosta in minutul 92
+Probabilitati: Home 4.7→18.1% | Draw 9.7→71.6% | Away 85.6→10.3%
+Impact maxim: 75.3% (away)
+Match ID: 3825848 | Scor: 2-2
+xG: 0.73 - 0.99
+
+#93. GOL marcat de Diego da Silva Costa in minutul 90
+Probabilitati: Home 6.0→21.5% | Draw 7.4→67.1% | Away 86.6→11.3%
+Impact maxim: 75.2% (away)
+Match ID: 3754281 | Scor: 1-1
+xG: 1.71 - 0.79
+
+#94. GOL marcat de Giovanni-Guy Yann Sio in minutul 88
+Probabilitati: Home 88.9→13.7% | Draw 8.6→74.5% | Away 2.5→11.8%
+Impact maxim: 75.2% (home)
+Match ID: 3829478 | Scor: 1-1
+xG: 0.47 - 1.63
+
+#95. Sut important de Ana-Maria Crnogorcevic in minutul 23
+Probabilitati: Home 9.9→8.0% | Draw 80.1→6.7% | Away 10.0→85.2%
+Impact maxim: 75.2% (away)
+Match ID: 3835323 | Scor: 0-2
+xG: 0.00 - 0.25
+
+#96. GOL marcat de Raffael Caetano de Araujo in minutul 83
+Probabilitati: Home 14.6→89.8% | Draw 76.7→8.7% | Away 8.7→1.5%
+Impact maxim: 75.2% (home)
+Match ID: 3890373 | Scor: 2-1
+xG: 1.83 - 1.52
+
+#97. GOL marcat de Paul Dummett in minutul 89
+Probabilitati: Home 3.5→9.6% | Draw 14.3→83.3% | Away 82.2→7.0%
+Impact maxim: 75.2% (away)
+Match ID: 3754088 | Scor: 3-3
+xG: 2.11 - 1.86
+
+#98. GOL marcat de Piero Martin Hincapie Reyna in minutul 90
+Probabilitati: Home 12.1→2.2% | Draw 71.4→6.2% | Away 16.5→91.6%
+Impact maxim: 75.1% (away)
+Match ID: 3895202 | Scor: 2-3
+xG: 0.90 - 1.88
+
+#99. GOL marcat de Sergio Leonel Aguero del Castillo in minutul 88
+Probabilitati: Home 13.8→88.8% | Draw 79.6→9.8% | Away 6.5→1.4%
+Impact maxim: 75.0% (home)
+Match ID: 69185 | Scor: 4-3
+xG: 2.81 - 2.08
+
+#100. GOL marcat de Joe Allen in minutul 89
+Probabilitati: Home 3.2→9.9% | Draw 13.7→82.0% | Away 83.1→8.1%
+Impact maxim: 75.0% (away)
+Match ID: 3754305 | Scor: 3-3
+xG: 1.19 - 1.77
+

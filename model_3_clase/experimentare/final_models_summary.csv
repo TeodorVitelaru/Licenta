@@ -1,0 +1,3 @@
+Model,CV Score,Test Acc (Raw),Test Acc (Cal),Log-Loss (Raw),Log-Loss (Cal),F1-Macro,Calibration Gain
+lgbm,-0.8136,0.6385,0.6445,0.7740,0.7957,0.5974,-2.8%
+logistic_regression,-0.8284,0.6321,0.6184,0.7743,0.8256,0.4959,-6.6%

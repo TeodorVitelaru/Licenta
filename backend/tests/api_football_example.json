@@ -1,0 +1,316 @@
+{
+  "fixture": {
+    "id": 1152476,
+    "timestamp": 1711795200,
+    "date": "2026-03-29T18:00:00Z",
+    "status": {
+      "short": "1H",
+      "long": "First Half"
+    },
+    "elapsed": 45,
+    "venue": {
+      "id": 14234,
+      "name": "Stadionul Farul",
+      "city": "Constanta"
+    },
+    "referee": "Alin Ștrălescu",
+    "goals": {
+      "home": 2,
+      "away": 1
+    },
+    "score": {
+      "halftime": {
+        "home": 2,
+        "away": 1
+      },
+      "fulltime": null,
+      "extratime": null,
+      "penalty": null
+    },
+    "teams": {
+      "home": {
+        "id": 645,
+        "name": "Farul Constanta",
+        "logo": "https://media.api-sports.io/teams/645/logo.png"
+      },
+      "away": {
+        "id": 674,
+        "name": "FCSB",
+        "logo": "https://media.api-sports.io/teams/674/logo.png"
+      }
+    }
+  },
+  "statistics": [
+    {
+      "team": {
+        "id": 645,
+        "name": "Farul Constanta",
+        "logo": "https://media.api-sports.io/teams/645/logo.png"
+      },
+      "statistics": [
+        {
+          "type": "Shots",
+          "value": 12
+        },
+        {
+          "type": "Shots on Goal",
+          "value": 5
+        },
+        {
+          "type": "Shots off Goal",
+          "value": 4
+        },
+        {
+          "type": "Shots inside box",
+          "value": 8
+        },
+        {
+          "type": "Shots outside box",
+          "value": 4
+        },
+        {
+          "type": "Blocked Shots",
+          "value": 3
+        },
+        {
+          "type": "Fouls",
+          "value": 14
+        },
+        {
+          "type": "Corner Kicks",
+          "value": 6
+        },
+        {
+          "type": "Offsides",
+          "value": 1
+        },
+        {
+          "type": "Ball Possession",
+          "value": "58%"
+        },
+        {
+          "type": "Yellow Cards",
+          "value": 2
+        },
+        {
+          "type": "Red Cards",
+          "value": 0
+        },
+        {
+          "type": "Goalkeeper Saves",
+          "value": 3
+        },
+        {
+          "type": "Total Passes",
+          "value": 425
+        },
+        {
+          "type": "Passes accurate",
+          "value": 380
+        },
+        {
+          "type": "Passes %",
+          "value": "89%"
+        },
+        {
+          "type": "Expected Goals",
+          "value": 1.8
+        },
+        {
+          "type": "Expected Assists",
+          "value": 0.4
+        },
+        {
+          "type": "Tackles",
+          "value": 18
+        },
+        {
+          "type": "Interceptions",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "team": {
+        "id": 674,
+        "name": "FCSB",
+        "logo": "https://media.api-sports.io/teams/674/logo.png"
+      },
+      "statistics": [
+        {
+          "type": "Shots",
+          "value": 8
+        },
+        {
+          "type": "Shots on Goal",
+          "value": 3
+        },
+        {
+          "type": "Shots off Goal",
+          "value": 2
+        },
+        {
+          "type": "Shots inside box",
+          "value": 5
+        },
+        {
+          "type": "Shots outside box",
+          "value": 3
+        },
+        {
+          "type": "Blocked Shots",
+          "value": 2
+        },
+        {
+          "type": "Fouls",
+          "value": 16
+        },
+        {
+          "type": "Corner Kicks",
+          "value": 3
+        },
+        {
+          "type": "Offsides",
+          "value": 2
+        },
+        {
+          "type": "Ball Possession",
+          "value": "42%"
+        },
+        {
+          "type": "Yellow Cards",
+          "value": 1
+        },
+        {
+          "type": "Red Cards",
+          "value": 0
+        },
+        {
+          "type": "Goalkeeper Saves",
+          "value": 4
+        },
+        {
+          "type": "Total Passes",
+          "value": 380
+        },
+        {
+          "type": "Passes accurate",
+          "value": 330
+        },
+        {
+          "type": "Passes %",
+          "value": "87%"
+        },
+        {
+          "type": "Expected Goals",
+          "value": 0.9
+        },
+        {
+          "type": "Expected Assists",
+          "value": 0.2
+        },
+        {
+          "type": "Tackles",
+          "value": 21
+        },
+        {
+          "type": "Interceptions",
+          "value": 9
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "time": {
+        "elapsed": 12,
+        "extra": null
+      },
+      "team": {
+        "id": 645,
+        "name": "Farul Constanta",
+        "logo": "https://media.api-sports.io/teams/645/logo.png"
+      },
+      "player": {
+        "id": 123456,
+        "name": "Grozav"
+      },
+      "type": "Goal",
+      "detail": null,
+      "comments": "Gol din acțiune după o trecere de Bodea din dreapta"
+    },
+    {
+      "time": {
+        "elapsed": 28,
+        "extra": null
+      },
+      "team": {
+        "id": 674,
+        "name": "FCSB",
+        "logo": "https://media.api-sports.io/teams/674/logo.png"
+      },
+      "player": {
+        "id": 234567,
+        "name": "Dawa Tchakanda"
+      },
+      "type": "Card",
+      "detail": "Yellow Card",
+      "comments": "Fault tactic"
+    },
+    {
+      "time": {
+        "elapsed": 35,
+        "extra": null
+      },
+      "team": {
+        "id": 674,
+        "name": "FCSB",
+        "logo": "https://media.api-sports.io/teams/674/logo.png"
+      },
+      "player": {
+        "id": 345678,
+        "name": "Pantilimon"
+      },
+      "type": "Goal",
+      "detail": null,
+      "comments": "Gol din contraatac rapid după intercepție"
+    },
+    {
+      "time": {
+        "elapsed": 42,
+        "extra": null
+      },
+      "team": {
+        "id": 645,
+        "name": "Farul Constanta",
+        "logo": "https://media.api-sports.io/teams/645/logo.png"
+      },
+      "player": {
+        "id": 456789,
+        "name": "Șeroni"
+      },
+      "type": "Card",
+      "detail": "Yellow Card",
+      "comments": "Joc periculos"
+    },
+    {
+      "time": {
+        "elapsed": 45,
+        "extra": null
+      },
+      "team": {
+        "id": 645,
+        "name": "Farul Constanta",
+        "logo": "https://media.api-sports.io/teams/645/logo.png"
+      },
+      "player": {
+        "id": 567890,
+        "name": "Irimia"
+      },
+      "type": "Goal",
+      "detail": null,
+      "comments": "Gol în timp de prelungire - ultima acțiune înainte de pauză"
+    }
+  ],
+  "match_id": "farul_vs_fcsb_api_football_2026_03_29"
+}

@@ -1,0 +1,66 @@
+================================================================================
+FINAL MODELS REPORT - INDUSTRY PRACTICE
+================================================================================
+
+Timestamp: 2026-05-03 18:13:22
+
+METHODOLOGY:
+  - Split: by_matches (80/20 on match_ids)
+  - Tuning: RandomizedSearchCV (n_iter controlled)
+  - CV: GroupKFold(2) - respects match structure
+  - Features: base + momentum + time + context (12 new)
+
+================================================================================
+MODEL: LGBM
+================================================================================
+
+CV Score (neg_log_loss): -0.8602
+
+Best Hyperparameters:
+  clf__num_leaves: 15
+  clf__n_estimators: 500
+  clf__min_data_in_leaf: 20
+  clf__max_depth: 5
+  clf__learning_rate: 0.01
+  clf__feature_fraction: 1.0
+  clf__bagging_fraction: 0.8
+
+Test Set Performance (Raw Model):
+  Accuracy: 0.6313
+  Log-Loss: 0.7819
+  F1-Macro: 0.5780
+
+================================================================================
+MODEL: GRADIENT_BOOSTING
+================================================================================
+
+CV Score (neg_log_loss): -0.8468
+
+Best Hyperparameters:
+  clf__subsample: 0.8
+  clf__n_estimators: 300
+  clf__min_samples_split: 2
+  clf__min_samples_leaf: 2
+  clf__max_depth: 5
+  clf__learning_rate: 0.01
+
+Test Set Performance (Raw Model):
+  Accuracy: 0.6357
+  Log-Loss: 0.7850
+  F1-Macro: 0.5908
+
+================================================================================
+MODEL: LOGISTIC_REGRESSION
+================================================================================
+
+CV Score (neg_log_loss): -0.8865
+
+Best Hyperparameters:
+  clf__solver: lbfgs
+  clf__class_weight: None
+  clf__C: 0.01
+
+Test Set Performance (Raw Model):
+  Accuracy: 0.6132
+  Log-Loss: 0.8160
+  F1-Macro: 0.5361

@@ -1,0 +1,212 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 200px;
+}
+
+.loading-container.loading-small {
+  padding: 20px;
+  min-height: 100px;
+}
+
+.loading-container.loading-medium {
+  padding: 40px 20px;
+  min-height: 200px;
+}
+
+.loading-container.loading-large {
+  padding: 80px 20px;
+  min-height: 400px;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.football-loader {
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(180deg);
+  }
+}
+
+.football-svg {
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 8px 16px rgba(245, 158, 11, 0.3));
+}
+
+.football-circle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+.ai-symbol {
+  animation: aiPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes aiPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.loading-message {
+  color: #1e293b;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.loading-dots .dot {
+  display: inline-block;
+  color: #f59e0b;
+  font-size: 1.5rem;
+  line-height: 1;
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.dot-1 {
+  animation-delay: 0s;
+}
+
+.dot-2 {
+  animation-delay: 0.2s;
+}
+
+.dot-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Variante de dimensiuni */
+.loading-small .football-svg {
+  width: 60px;
+  height: 60px;
+}
+
+.loading-small .loading-text {
+  font-size: 0.9rem;
+}
+
+.loading-small .loading-dots .dot {
+  font-size: 1.2rem;
+}
+
+.loading-medium .football-svg {
+  width: 120px;
+  height: 120px;
+}
+
+.loading-large .football-svg {
+  width: 180px;
+  height: 180px;
+}
+
+.loading-large .loading-text {
+  font-size: 1.3rem;
+}
+
+.loading-large .loading-dots .dot {
+  font-size: 1.8rem;
+}
+
+/* Overlay pentru full screen loading */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-overlay .loading-container {
+  min-height: auto;
+  padding: 0;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .loading-text {
+    color: #e2e8f0;
+  }
+  
+  .loading-message {
+    color: #f1f5f9;
+  }
+  
+  .loading-overlay {
+    background: rgba(15, 23, 42, 0.95);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .football-svg {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+  }
+  
+  .loading-dots .dot {
+    font-size: 1.3rem;
+  }
+}
+

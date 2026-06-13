@@ -1,0 +1,4 @@
+Model,CV Score,Test Acc,Log-Loss,F1-Macro
+lgbm,-0.8493,0.6256,0.8449,0.5867
+gradient_boosting,-0.8222,0.6408,0.8267,0.5950
+logistic_regression,-0.9545,0.6089,0.8189,0.5613

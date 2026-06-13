@@ -1,0 +1,184 @@
+.probability-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.probability-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Culori pentru fiecare tip */
+.card-home {
+  border-color: #dbeafe;
+}
+
+.card-home.winner {
+  border-color: #3b82f6;
+  border-width: 3px;
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+}
+
+.card-draw {
+  border-color: #f3f4f6;
+}
+
+.card-draw.winner {
+  border-color: #6b7280;
+  border-width: 3px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.card-away {
+  border-color: #fee2e2;
+}
+
+.card-away.winner {
+  border-color: #ef4444;
+  border-width: 3px;
+  background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  font-size: 24px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Content */
+.card-content {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.probability-value {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.card-home .probability-value {
+  color: #3b82f6;
+}
+
+.card-draw .probability-value {
+  color: #6b7280;
+}
+
+.card-away .probability-value {
+  color: #ef4444;
+}
+
+.team-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f59e0b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.trophy-icon {
+  font-size: 14px;
+}
+
+/* Footer */
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 3px;
+}
+
+.card-home .confidence-fill {
+  background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.card-draw .confidence-fill {
+  background: linear-gradient(90deg, #6b7280 0%, #9ca3af 100%);
+}
+
+.card-away .confidence-fill {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+}
+
+.confidence-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Confidence levels */
+.confidence-high .confidence-label {
+  color: #10b981;
+}
+
+.confidence-medium .confidence-label {
+  color: #f59e0b;
+}
+
+.confidence-low .confidence-label {
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .probability-card {
+    padding: 16px;
+  }
+
+  .probability-value {
+    font-size: 42px;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+}
