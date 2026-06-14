@@ -583,7 +583,7 @@ async def predict_by_fixture_id(
     user_id: str = Depends(get_current_user)
 ):
     """
-    Predictie simplificata: primește doar fixture_id si fetch automat date din API-Football.
+    Predictie simplificata: primeste doar fixture_id si preia automat date din API-Football.
 
     Flux:
     1. Primeste fixture_id

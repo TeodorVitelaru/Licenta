@@ -1,10 +1,5 @@
 """
-STEP 2 (UPDATED): Antrenare Gradient Boosting MULTICLASS
-=========================================================
-✔ Aceleași feature-uri ca LGBM (fair comparison)
-✔ Fără scaler (tree-based model)
-✔ Parametri fixați (academic + stabil)
-✔ Split pe meciuri (corect temporal)
+Antrenare Gradient Boosting MULTICLASS
 """
 
 import pandas as pd
@@ -25,9 +20,6 @@ print("=" * 90)
 print(" GRADIENT BOOSTING MULTICLASS - FINAL VERSION (UPDATED)")
 print("=" * 90)
 
-# =========================
-# LOAD DATA
-# =========================
 print("\n Loading dataset...")
 
 df = pd.read_csv("../model/dataset_training.csv")
@@ -35,9 +27,7 @@ df["target"] = df["final_result"] + 1  # -1,0,1 → 0,1,2
 
 print(f" Dataset: {len(df):,} rows")
 
-# =========================
 # FEATURE ENGINEERING (IDENTIC CU LGBM)
-# =========================
 print("\n Feature engineering...")
 
 df = df.sort_values(["match_id", "minute"]).copy()
@@ -76,11 +66,8 @@ df["is_winning"] = (df["score_diff"] > 0).astype(int)
 df["score_xg_gap"] = df["score_diff"] - df["xg_diff"]
 df["pressure_advantage"] = df["pressure_home"] - df["pressure_away"]
 
-print("✓ Features added")
+print(" Features added")
 
-# =========================
-# FEATURES
-# =========================
 feature_cols = [
     'minute', 'timestamp_seconds',
     'score_home', 'score_away', 'score_diff',
@@ -109,9 +96,7 @@ feature_cols = [
 X = df[feature_cols]
 y = df["target"]
 
-# =========================
-# SPLIT BY MATCH (IMPORTANT)
-# =========================
+# SPLIT BY MATCH
 print("\n Splitting by matches...")
 
 match_ids = df["match_id"].unique()
@@ -131,17 +116,15 @@ y_train, y_test = y[train_mask], y[test_mask]
 print(f"Train: {len(X_train):,} samples")
 print(f"Test : {len(X_test):,} samples")
 
-# =========================
 # MODEL (FIXED PARAMETERS)
-# =========================
 print("\n Training Gradient Boosting...")
 
 model = GradientBoostingClassifier(
-    n_estimators=200,        # suficient complexitate
-    learning_rate=0.05,      # stabil (mai bun decât 0.1)
-    max_depth=5,             # balance bias/variance
-    subsample=0.8,           # reduce overfitting
-    min_samples_leaf=10,     # regularizare importantă pe event data
+    n_estimators=200,        
+    learning_rate=0.05,     
+    max_depth=5,           
+    subsample=0.8,          
+    min_samples_leaf=10,    
     random_state=RANDOM_STATE,
     verbose=2
 )
@@ -152,9 +135,7 @@ elapsed = time.time() - start
 
 print(f"\n Training completed in {elapsed/60:.2f} minutes")
 
-# =========================
 # EVALUARE
-# =========================
 print("\n Evaluation on test set...")
 
 y_pred = model.predict(X_test)
@@ -176,9 +157,7 @@ print("\n Confusion Matrix:")
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
 
-# =========================
 # FEATURE IMPORTANCE
-# =========================
 print("\n Top Feature Importance:")
 
 fi = pd.DataFrame({
@@ -188,9 +167,6 @@ fi = pd.DataFrame({
 
 print(fi.head(15))
 
-# =========================
-# SAVE MODEL
-# =========================
 joblib.dump(model, "gb_final_model.pkl")
 joblib.dump(feature_cols, "gb_feature_cols.pkl")
 
@@ -199,16 +175,7 @@ print(" - gb_final_model.pkl")
 print(" - gb_feature_cols.pkl")
 
 
-# =========================
-# SUMMARY
-# =========================
 print("\n" + "=" * 90)
 print(" GRADIENT BOOSTING TRAINING COMPLETE")
 print("=" * 90)
 
-print("\n✔ Same features as LGBM")
-print("✔ No scaling needed")
-print("✔ Match-based split (no leakage)")
-print("✔ Stable fixed hyperparameters")
-
-print("\n➡ Ready for fair comparison with LGBM")
